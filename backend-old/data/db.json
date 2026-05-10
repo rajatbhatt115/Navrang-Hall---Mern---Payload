@@ -1,0 +1,2152 @@
+{
+  "homeBanners": [
+    {
+      "id": 1,
+      "title": "New Collection",
+      "subtitle": "FIND WHAT BEST OPTIONS FOR YOU",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "buttonText": "Shop Now",
+      "buttonLink": "/shop",
+      "imageUrl": "img/img_banner_home.webp"
+    },
+    {
+      "id": 2,
+      "title": "About Us",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "buttonText": "Shop Now",
+      "buttonLink": "/shop",
+      "imageUrl": "img/img_about_banner.webp"
+    },
+    {
+      "id": 3,
+      "title": "Shop",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "imageUrl": "img/img_banner_shop.webp"
+    },
+    {
+      "id": 4,
+      "title": "Blog",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "buttonText": "Shop Now",
+      "buttonLink": "/shop",
+      "imageUrl": "img/img_blog_banner.webp"
+    },
+    {
+      "id": 5,
+      "title": "Contact Us",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "buttonText": "Shop Now",
+      "buttonLink": "/shop",
+      "imageUrl": "img/img_contact_banner.webp"
+    },
+    {
+      "id": 6,
+      "title": "Login",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "buttonText": "Shop Now",
+      "buttonLink": "/shop",
+      "imageUrl": "img/img_about_banner.webp"
+    },
+    {
+      "id": 7,
+      "title": "Cart",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "buttonText": "Shop Now",
+      "buttonLink": "/shop",
+      "imageUrl": "img/Rectangle_img_edit.webp"
+    },
+    {
+      "id": 8,
+      "title": "Wishlist",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "buttonText": "Shop Now",
+      "buttonLink": "/shop",
+      "imageUrl": "img/ic_wishlist_banner.webp"
+    },
+    {
+      "id": 9,
+      "title": "Product Details",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "imageUrl": "img/img_banner_shop.webp"
+    }
+  ],
+  "discoverProducts": [
+    {
+      "id": 1,
+      "title": "Shop The Latest Items From Top Brands",
+      "badge": "New Arrival",
+      "bgColor": "#F9EC82",
+      "image": "img/disc1.webp"
+    },
+    {
+      "id": 2,
+      "title": "Exclusive Winter Collection Latest Trends",
+      "badge": "Trending",
+      "bgColor": "#FFE8CC",
+      "image": "img/disc2.webp"
+    },
+    {
+      "id": 3,
+      "title": "Premium Ethnic Wear Collection",
+      "badge": "Limited",
+      "bgColor": "#F9EC82",
+      "image": "img/disc3.webp"
+    },
+    {
+      "id": 4,
+      "title": "Summer Fashion Essentials Latest Arrivals",
+      "badge": "Hot",
+      "bgColor": "#FFE8CC",
+      "image": "img/disc4.webp"
+    }
+  ],
+  "aboutContent": [
+    {
+      "id": 1,
+      "experienceTitle": "15+ Years Of Experience In This Industry",
+      "experienceTexts": [
+        "Suspendisse non nisl sit amet velit hendrerit rutrum. Nulla porta dolor. Nunc interdum lacus sit amet orci. Donec quis lectus, aliquam ut, faucibus non, euismod id, nulla.",
+        "Suspendisse non nisl sit amet velit hendrerit rutrum. Nulla porta dolor. Nunc interdum lacus sit amet orci. Donec quis lectus, aliquam ut, faucibus non, euismod id, nulla. Etiam sit amet erat nec sapir vehicula.",
+        "Maecenas egestas arcu quis ligula mattis placerat. Quisque ut mi. Sed a libero. Vestibulum semper mauris ut ligula. Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc, eu sollicitudin urna dolor sagittis lacus."
+      ],
+      "founder": {
+        "name": "Aaksh Shah",
+        "role": "Founder, CEO",
+        "image": "img/img_akash_shah.webp"
+      },
+      "mission": {
+        "title": "Our Mission.",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+      },
+      "awards": {
+        "title": "Awards & Recognition.",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+      },
+      "historyTitle": "Our History.",
+      "historySubtitle": "Lorem ipsum is simply dummy text of the printing and typesetting industry.",
+      "timeline": [
+        {
+          "id": 1,
+          "year": "2015",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+        },
+        {
+          "id": 2,
+          "year": "2016",
+          "text": "Expanded to 3 new locations and introduced our premium clothing line. Received the 'Best New Retailer' award."
+        },
+        {
+          "id": 3,
+          "year": "2017",
+          "text": "Launched our official e-commerce platform, making our products available nationwide for the first time."
+        },
+        {
+          "id": 4,
+          "year": "2018",
+          "text": "Crossed 50,000 happy customers and partnered with leading fashion brands to expand our collection."
+        },
+        {
+          "id": 5,
+          "year": "2019",
+          "text": "Introduced exclusive designer wear and expanded our team to strengthen customer support and operations."
+        },
+        {
+          "id": 6,
+          "year": "2020",
+          "text": "Adapted to digital growth by enhancing online shopping experience and launching home delivery services."
+        },
+        {
+          "id": 7,
+          "year": "2021",
+          "text": "Opened flagship store and added sustainable and eco-friendly fashion lines to our catalog."
+        },
+        {
+          "id": 8,
+          "year": "2022",
+          "text": "Achieved record-breaking sales and launched loyalty programs to reward our long-term customers."
+        },
+        {
+          "id": 9,
+          "year": "2023",
+          "text": "Expanded presence across multiple cities and strengthened our brand as a trusted fashion destination."
+        }
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "title": "Western Wear",
+      "description": "Stylish everyday outfits for a chic modern look.",
+      "image": "img/img_western.webp"
+    },
+    {
+      "id": 2,
+      "title": "Dress",
+      "description": "Elegant designer gowns crafted for special celebrations.",
+      "image": "img/img_dress.webp"
+    },
+    {
+      "id": 3,
+      "title": "Navratri",
+      "description": "Vibrant ethnic styles perfect for festive occasions.",
+      "image": "img/navratri.webp"
+    }
+  ],
+  "topRatingProducts": {
+    "kids": [
+      {
+        "id": 1,
+        "title": "Kids T-Shirt",
+        "price": "₹1,200",
+        "rating": 4,
+        "image": "img/kid5.webp"
+      },
+      {
+        "id": 2,
+        "title": "Kids Dress",
+        "price": "₹2,500",
+        "rating": 5,
+        "image": "img/kids_dress.webp"
+      },
+      {
+        "id": 3,
+        "title": "Kids Jeans",
+        "price": "₹1,800",
+        "rating": 4,
+        "image": "img/kids_jeans.webp"
+      }
+    ],
+    "women": [
+      {
+        "id": 4,
+        "title": "Western",
+        "price": "₹7,500",
+        "rating": 4,
+        "image": "img/western.webp"
+      },
+      {
+        "id": 5,
+        "title": "Gown",
+        "price": "₹7,500",
+        "rating": 5,
+        "image": "img/gown.webp"
+      },
+      {
+        "id": 6,
+        "title": "Sarees",
+        "price": "₹7,500",
+        "rating": 4,
+        "image": "img/saree.webp"
+      }
+    ],
+    "jewellery": [
+      {
+        "id": 7,
+        "title": "Gold Necklace",
+        "price": "₹15,000",
+        "rating": 4,
+        "image": "img/jewellery1.webp"
+      },
+      {
+        "id": 8,
+        "title": "Silver Earrings",
+        "price": "₹3,500",
+        "rating": 5,
+        "image": "img/jewellery2.webp"
+      },
+      {
+        "id": 9,
+        "title": "Diamond Ring",
+        "price": "₹25,000",
+        "rating": 4,
+        "image": "img/jewellery3.webp"
+      }
+    ]
+  },
+  "testimonials": [
+    {
+      "id": 1,
+      "name": "Harold Patel",
+      "text": "\"There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.\"",
+      "image": "img/per1.webp"
+    },
+    {
+      "id": 2,
+      "name": "Priya Sharma",
+      "text": "\"I absolutely love the quality of clothes from Shree Laxmi Mall. The fabrics are premium and the designs are trendy. My friends always ask me where I shop!\"",
+      "image": "img/per2.webp"
+    },
+    {
+      "id": 3,
+      "name": "Rahul Verma",
+      "text": "\"The customer service is exceptional. They helped me find the perfect outfit for my sister's wedding. The delivery was prompt and the packaging was beautiful.\"",
+      "image": "img/per3.webp"
+    }
+  ],
+  "blogs": {
+    "homeBlogs": {
+      "mainBlog": {
+        "id": 1,
+        "title": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "author": "Kiran Patel",
+        "date": "20 May 2023",
+        "image": "img/blog1.webp",
+        "authorImage": "img/ic_kiran.webp"
+      },
+      "smallBlogs": [
+        {
+          "id": 3,
+          "title": "Berbeza dari pendapat umum yang popular, Lorem Ipsum bukan karya text secara rambang.",
+          "excerpt": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "author": "Neha Bhatt",
+          "date": "20 May 2023",
+          "image": "img/ic_blog3.webp",
+          "authorImage": "img/ic_neha.webp"
+        },
+        {
+          "id": 4,
+          "title": "Sejumlah text seragam Lorem Ipsum yang digunakan semenjak 1500an di terbitkan di bawah ini untuk mereka yang berminat.",
+          "excerpt": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "author": "Ankit Patil",
+          "date": "14 April 2023",
+          "image": "img/ic_blog4.webp",
+          "authorImage": "img/ic_ankit.webp"
+        }
+      ]
+    },
+    "blogPages": {
+      "1": {
+        "mainBlogs": [
+          {
+            "id": 1,
+            "title": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+            "author": "Kiran Patel",
+            "date": "20 May 2023",
+            "image": "img/blog1.webp",
+            "authorImage": "img/ic_kiran.webp"
+          },
+          {
+            "id": 2,
+            "title": "The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.",
+            "author": "Kishan Patel",
+            "date": "30 May 2023",
+            "image": "img/blog2.webp",
+            "authorImage": "img/ic_kishan.webp"
+          }
+        ],
+        "smallBlogs": [
+          {
+            "id": 3,
+            "title": "Berbeza dari pendapat umum yang popular, Lorem Ipsum bukan karya text secara rambang.",
+            "excerpt": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+            "author": "Neha Bhatt",
+            "date": "20 May 2023",
+            "image": "img/ic_blog3.webp",
+            "authorImage": "img/ic_neha.webp"
+          },
+          {
+            "id": 4,
+            "title": "Sejumlah text seragam Lorem Ipsum yang digunakan semenjak 1500an di terbitkan di bawah ini untuk mereka yang berminat.",
+            "excerpt": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+            "author": "Ankit Patil",
+            "date": "14 April 2023",
+            "image": "img/ic_blog4.webp",
+            "authorImage": "img/ic_ankit.webp"
+          },
+          {
+            "id": 5,
+            "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "excerpt": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+            "author": "Parth Patel",
+            "date": "10 March 2023",
+            "image": "img/ic_blog5.webp",
+            "authorImage": "img/ic_parth.webp"
+          },
+          {
+            "id": 6,
+            "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "excerpt": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+            "author": "Nupur Shah",
+            "date": "10 March 2023",
+            "image": "img/ic_blog6.webp",
+            "authorImage": "img/ic_nupur.webp"
+          }
+        ]
+      },
+      "2": {
+        "mainBlogs": [
+          {
+            "id": 7,
+            "title": "Summer Fashion Trends 2023: Latest Styles and Designs",
+            "author": "Kiran Patel",
+            "date": "15 June 2023",
+            "image": "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=600",
+            "authorImage": "https://i.pravatar.cc/150?img=1"
+          },
+          {
+            "id": 8,
+            "title": "Eco-Friendly Fabrics: Sustainable Choices for Modern Wardrobe",
+            "author": "Kiyara Patel",
+            "date": "28 June 2023",
+            "image": "https://images.unsplash.com/photo-1445205170230-053b83016050?w=600",
+            "authorImage": "https://i.pravatar.cc/150?img=5"
+          }
+        ],
+        "smallBlogs": [
+          {
+            "id": 9,
+            "title": "Traditional Saree Collection: Timeless Elegance for Modern Women",
+            "excerpt": "Explore our exclusive collection of traditional sarees for every occasion.",
+            "author": "Neha Bhatt",
+            "date": "10 June 2023",
+            "image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400",
+            "authorImage": "https://i.pravatar.cc/150?img=10"
+          },
+          {
+            "id": 10,
+            "title": "Casual Kurtis: Perfect for Office and Everyday Wear",
+            "excerpt": "Comfortable and stylish kurtis that blend tradition with contemporary fashion.",
+            "author": "Ankit Patil",
+            "date": "5 July 2023",
+            "image": "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=400",
+            "authorImage": "https://i.pravatar.cc/150?img=20"
+          },
+          {
+            "id": 11,
+            "title": "Lehenga Choli Designs: Perfect for Wedding Season",
+            "excerpt": "Stunning lehenga choli designs that make you stand out at every celebration.",
+            "author": "Parth Patel",
+            "date": "22 June 2023",
+            "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400",
+            "authorImage": "https://i.pravatar.cc/150?img=25"
+          },
+          {
+            "id": 12,
+            "title": "Designer Blouses: Elevate Your Saree Game",
+            "excerpt": "Latest designer blouse patterns to complement your traditional outfits.",
+            "author": "Nupur Shah",
+            "date": "18 July 2023",
+            "image": "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=400",
+            "authorImage": "https://i.pravatar.cc/150?img=30"
+          }
+        ]
+      },
+      "3": {
+        "mainBlogs": [
+          {
+            "id": 13,
+            "title": "Winter Collection 2023: Stay Warm in Style",
+            "author": "Kiran Patel",
+            "date": "5 September 2023",
+            "image": "img/blog2.webp",
+            "authorImage": "img/ic_kiran.webp"
+          },
+          {
+            "id": 14,
+            "title": "Festive Season Shopping Guide: Diwali Special Collection",
+            "author": "Kiran Patel",
+            "date": "12 October 2023",
+            "image": "img/blog1.webp",
+            "authorImage": "https://i.pravatar.cc/150?img=1"
+          }
+        ],
+        "smallBlogs": [
+          {
+            "id": 15,
+            "title": "Anarkali Suits: Royal Look for Special Occasions",
+            "excerpt": "Graceful Anarkali suits that make you feel like royalty at every event.",
+            "author": "Neha Bhatt",
+            "date": "8 September 2023",
+            "image": "img/ic_blog3.webp",
+            "authorImage": "img/ic_neha.webp"
+          },
+          {
+            "id": 16,
+            "title": "Silk Sarees: Luxury Fabrics for Grand Celebrations",
+            "excerpt": "Explore our exclusive collection of pure silk sarees for weddings and festivals.",
+            "author": "Ankit Patil",
+            "date": "20 September 2023",
+            "image": "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=400",
+            "authorImage": "https://i.pravatar.cc/150?img=20"
+          },
+          {
+            "id": 17,
+            "title": "Indo-Western Fusion: Modern Twist to Traditional Outfits",
+            "excerpt": "Combine traditional elegance with contemporary style in these fusion outfits.",
+            "author": "Parth Patel",
+            "date": "15 October 2023",
+            "image": "img/ic_blog5.webp",
+            "authorImage": "img/ic_parth.webp"
+          },
+          {
+            "id": 18,
+            "title": "Accessories to Complete Your Ethnic Look",
+            "excerpt": "Jewelry, handbags, and footwear that perfectly complement your ethnic outfits.",
+            "author": "Nupur Shah",
+            "date": "25 October 2023",
+            "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400",
+            "authorImage": "https://i.pravatar.cc/150?img=25"
+          }
+        ]
+      }
+    }
+  },
+  "products": [
+    {
+      "id": 1,
+      "title": "Elegant Evening Dress",
+      "price": 2000,
+      "category": "Female",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "rating": 4.9,
+      "image": "img/western.webp",
+      "isNew": true
+    },
+    {
+      "id": 2,
+      "title": "Floral Summer Dress",
+      "price": 2500,
+      "category": "Female",
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "rating": 4.8,
+      "image": "img/img_dress.webp",
+      "isNew": false
+    },
+    {
+      "id": 3,
+      "title": "Casual Party Wear",
+      "price": 2000,
+      "category": "Female",
+      "sizes": [
+        "S",
+        "M"
+      ],
+      "rating": 4.9,
+      "image": "img/img_western.webp",
+      "isNew": true
+    },
+    {
+      "id": 4,
+      "title": "Designer Saree",
+      "price": 3500,
+      "category": "Female",
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "rating": 4.9,
+      "image": "img/saree.webp",
+      "isNew": false
+    },
+    {
+      "id": 5,
+      "title": "Traditional Lehenga",
+      "price": 4500,
+      "category": "Female",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "rating": 4.8,
+      "image": "img/navratri.webp",
+      "isNew": true
+    },
+    {
+      "id": 6,
+      "title": "Modern Ethnic Wear",
+      "price": 2800,
+      "category": "Female",
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "rating": 4.9,
+      "image": "img/gown.webp",
+      "isNew": false
+    },
+    {
+      "id": 7,
+      "title": "Bridal Lehenga",
+      "price": 5500,
+      "category": "Female",
+      "sizes": [
+        "S",
+        "M"
+      ],
+      "rating": 5,
+      "image": "img/fe1.webp",
+      "isNew": true
+    },
+    {
+      "id": 8,
+      "title": "Office Formal Suit",
+      "price": 3200,
+      "category": "Male",
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "rating": 4.7,
+      "image": "img/img_ankit.webp",
+      "isNew": false
+    },
+    {
+      "id": 9,
+      "title": "Silk Saree",
+      "price": 4200,
+      "category": "Female",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "rating": 4.9,
+      "image": "img/fe6.webp",
+      "isNew": true
+    },
+    {
+      "id": 10,
+      "title": "Kids Casual Dress",
+      "price": 1500,
+      "category": "Kids",
+      "sizes": [
+        "S",
+        "M"
+      ],
+      "rating": 4.5,
+      "image": "img/kids_dress.webp",
+      "isNew": true
+    },
+    {
+      "id": 11,
+      "title": "Gold Necklace Set",
+      "price": 8000,
+      "category": "Jewellery",
+      "sizes": [
+        "One Size"
+      ],
+      "rating": 4.9,
+      "image": "img/jewellery1.webp",
+      "isNew": false
+    },
+    {
+      "id": 12,
+      "title": "Men's Formal Suit",
+      "price": 3800,
+      "category": "Male",
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "rating": 4.6,
+      "image": "img/me2.webp",
+      "isNew": true
+    }
+  ],
+  "team": [
+    {
+      "id": 1,
+      "name": "Aaksh Shah",
+      "role": "Founder, CEO",
+      "image": "img/img_aaksh.webp"
+    },
+    {
+      "id": 2,
+      "name": "Neha Patel",
+      "role": "President",
+      "image": "img/img_naha.webp"
+    },
+    {
+      "id": 3,
+      "name": "Ankit Patel",
+      "role": "Co-Founder",
+      "image": "img/img_ankit.webp"
+    }
+  ],
+  "cartItems": [
+    {
+      "id": 1,
+      "name": "Dress Name",
+      "image": "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=500",
+      "color": "Orange",
+      "size": "XS",
+      "price": 4000,
+      "quantity": 1,
+      "inStock": true
+    },
+    {
+      "id": 3,
+      "name": "Jewellery Name",
+      "image": "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=500",
+      "color": "Orange",
+      "size": "XS",
+      "price": 4000,
+      "quantity": 2,
+      "inStock": true
+    },
+    {
+      "id": 4,
+      "name": "Dress Name",
+      "image": "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=500",
+      "color": "Orange",
+      "size": "XS",
+      "price": 4000,
+      "quantity": 1,
+      "inStock": false
+    },
+    {
+      "name": "Bridal Lehenga",
+      "image": "img/fe1.webp",
+      "color": "Green",
+      "size": "S",
+      "price": 5500,
+      "quantity": 1,
+      "inStock": true,
+      "id": 5
+    }
+  ],
+  "wishlistItems": [
+    {
+      "id": 1,
+      "name": "Dress Name",
+      "image": "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=400",
+      "color": "Orange",
+      "size": "XS",
+      "unitPrice": 4000,
+      "quantity": 1,
+      "inStock": true
+    },
+    {
+      "id": 3,
+      "name": "Jewellery Name",
+      "image": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400",
+      "color": "Orange",
+      "size": "XS",
+      "unitPrice": 4000,
+      "quantity": 2,
+      "inStock": true
+    },
+    {
+      "id": 4,
+      "name": "Dress Name",
+      "image": "https://images.unsplash.com/photo-1591369822096-ffd140ec948f?w=400",
+      "color": "Orange",
+      "size": "XS",
+      "unitPrice": 4000,
+      "quantity": 1,
+      "inStock": false
+    }
+  ],
+  "productDetails": [
+    {
+      "id": 1,
+      "name": "Elegant Evening Dress",
+      "price": 2000,
+      "rating": 4.8,
+      "images": [
+        {
+          "thumb": "/img/img_sm1.webp",
+          "large": "/img/img_lg1.webp"
+        },
+        {
+          "thumb": "/img/img_sm2.webp",
+          "large": "/img/img_lg2.webp"
+        },
+        {
+          "thumb": "/img/img_sm3.webp",
+          "large": "/img/img_lg3.webp"
+        }
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+      "reviews": [
+        {
+          "id": 1,
+          "name": "Priya Sharma",
+          "rating": 5,
+          "text": "Excellent quality! The dress fits perfectly and the fabric is very comfortable. I've received so many compliments!",
+          "avatar": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 2,
+          "name": "Rahul Verma",
+          "rating": 5,
+          "text": "Best purchase ever! The stitching is excellent and the color looks exactly like in the picture. Very fast delivery too!",
+          "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80"
+        },
+        {
+          "id": 3,
+          "name": "Anjali Patel",
+          "rating": 5,
+          "text": "Love this dress! Perfect for summer parties. The quality exceeded my expectations. Will definitely buy again.",
+          "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&auto=format&fit=crop&q=80"
+        },
+        {
+          "id": 4,
+          "name": "Vikram Singh",
+          "rating": 5,
+          "text": "Good quality fabric, fits perfectly. Would definitely recommend to friends and family.",
+          "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80"
+        },
+        {
+          "id": 5,
+          "name": "Neha Gupta",
+          "rating": 5,
+          "text": "Beautiful design and perfect for office wear. The material is breathable and doesn't wrinkle easily.",
+          "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&auto=format&fit=crop&q=80"
+        },
+        {
+          "id": 6,
+          "name": "Neha Yadav",
+          "rating": 4,
+          "text": "Loved the fabric and finishing, delivery was quick and the product exceeded my expectations.",
+          "avatar": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=150&auto=format&fit=crop&q=80"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Floral Summer Dress",
+      "price": 2500,
+      "rating": 4.8,
+      "images": [
+        {
+          "thumb": "/img/img_sm1.webp",
+          "large": "/img/img_lg1.webp"
+        },
+        {
+          "thumb": "/img/img_sm2.webp",
+          "large": "/img/img_lg2.webp"
+        },
+        {
+          "thumb": "/img/img_sm3.webp",
+          "large": "/img/img_lg3.webp"
+        }
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "description": "Beautiful floral summer dress made with lightweight fabric, perfect for daily wear and outings.",
+      "reviews": [
+        {
+          "id": 1,
+          "name": "Neha Patel",
+          "rating": 5,
+          "text": "Very comfortable and stylish. Perfect for summers!",
+          "avatar": "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e"
+        },
+        {
+          "id": 2,
+          "name": "Rajesh Kumar",
+          "rating": 5,
+          "text": "My wife loved this dress! The quality is excellent and delivery was super fast.",
+          "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e"
+        },
+        {
+          "id": 3,
+          "name": "Sonia Mehta",
+          "rating": 5,
+          "text": "Perfect fit and amazing fabric quality. I've already recommended to my friends.",
+          "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330"
+        },
+        {
+          "id": 4,
+          "name": "Amit Joshi",
+          "rating": 5,
+          "text": "Great purchase! The floral pattern is beautiful and the dress is very comfortable.",
+          "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d"
+        },
+        {
+          "id": 5,
+          "name": "Pooja Sharma",
+          "rating": 5,
+          "text": "Absolutely love this dress! Perfect for summer outings and beach vacations.",
+          "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Casual Party Wear",
+      "price": 2000,
+      "rating": 4.9,
+      "images": [
+        {
+          "thumb": "/img/img_sm1.webp",
+          "large": "/img/img_lg1.webp"
+        },
+        {
+          "thumb": "/img/img_sm2.webp",
+          "large": "/img/img_lg2.webp"
+        },
+        {
+          "thumb": "/img/img_sm3.webp",
+          "large": "/img/img_lg3.webp"
+        }
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "description": "Trendy casual party wear with elegant finish and premium stitching.",
+      "reviews": [
+        {
+          "id": 1,
+          "name": "Anjali Mehta",
+          "rating": 5,
+          "text": "Looks amazing at parties. Loved the quality!",
+          "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2"
+        },
+        {
+          "id": 2,
+          "name": "Rahul Malhotra",
+          "rating": 5,
+          "text": "Perfect for casual parties! Received many compliments on this outfit.",
+          "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d"
+        },
+        {
+          "id": 3,
+          "name": "Kiran Patel",
+          "rating": 5,
+          "text": "Very stylish and comfortable. Great for evening parties and gatherings.",
+          "avatar": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1"
+        },
+        {
+          "id": 4,
+          "name": "Sunil Verma",
+          "rating": 5,
+          "text": "Excellent quality fabric and perfect stitching. Worth every penny!",
+          "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e"
+        },
+        {
+          "id": 5,
+          "name": "Mona Singh",
+          "rating": 5,
+          "text": "Perfect party wear! The design is trendy and fabric is premium quality.",
+          "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Designer Saree",
+      "price": 3500,
+      "rating": 4.9,
+      "images": [
+        {
+          "thumb": "/img/img_sm1.webp",
+          "large": "/img/img_lg1.webp"
+        },
+        {
+          "thumb": "/img/img_sm2.webp",
+          "large": "/img/img_lg2.webp"
+        },
+        {
+          "thumb": "/img/img_sm3.webp",
+          "large": "/img/img_lg3.webp"
+        }
+      ],
+      "sizes": [
+        "Free Size"
+      ],
+      "description": "Elegant designer saree suitable for weddings and festive occasions.",
+      "reviews": [
+        {
+          "id": 1,
+          "name": "Kavita Joshi",
+          "rating": 5,
+          "text": "Very classy saree. Got many compliments.",
+          "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde"
+        },
+        {
+          "id": 2,
+          "name": "Rekha Patel",
+          "rating": 5,
+          "text": "Beautiful designer saree! Perfect for weddings and festive occasions.",
+          "avatar": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1"
+        },
+        {
+          "id": 3,
+          "name": "Anil Sharma",
+          "rating": 5,
+          "text": "Bought this for my wife. She looks stunning in this saree! Excellent quality.",
+          "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d"
+        },
+        {
+          "id": 4,
+          "name": "Priya Nair",
+          "rating": 5,
+          "text": "The embroidery work is exquisite! Perfect for Diwali celebrations.",
+          "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2"
+        },
+        {
+          "id": 5,
+          "name": "Deepak Gupta",
+          "rating": 5,
+          "text": "My mother loved this saree. The fabric is premium and design is elegant.",
+          "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Traditional Lehenga",
+      "price": 4500,
+      "rating": 4.8,
+      "images": [
+        {
+          "thumb": "/img/img_sm1.webp",
+          "large": "/img/img_lg1.webp"
+        },
+        {
+          "thumb": "/img/img_sm2.webp",
+          "large": "/img/img_lg2.webp"
+        },
+        {
+          "thumb": "/img/img_sm3.webp",
+          "large": "/img/img_lg3.webp"
+        }
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "description": "Traditional lehenga with rich embroidery, ideal for festivals and weddings.",
+      "reviews": [
+        {
+          "id": 1,
+          "name": "Riya Shah",
+          "rating": 5,
+          "text": "Perfect festive outfit. Fabric quality is premium.",
+          "avatar": "https://images.unsplash.com/photo-1520813792240-56fc4a3765a7"
+        },
+        {
+          "id": 2,
+          "name": "Amit Shah",
+          "rating": 5,
+          "text": "Bought this for my sister's wedding. She looked absolutely beautiful!",
+          "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d"
+        },
+        {
+          "id": 3,
+          "name": "Neha Kapoor",
+          "rating": 5,
+          "text": "The embroidery work is amazing! Perfect for Navratri celebrations.",
+          "avatar": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1"
+        },
+        {
+          "id": 4,
+          "name": "Raj Malhotra",
+          "rating": 5,
+          "text": "Excellent traditional lehenga. My daughter loved it for her college festival.",
+          "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e"
+        },
+        {
+          "id": 5,
+          "name": "Pooja Mehta",
+          "rating": 5,
+          "text": "Beautiful lehenga! The zari work is exquisite and the fit is perfect.",
+          "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330"
+        }
+      ]
+    },
+    {
+     "images": [
+        {
+          "thumb": "/img/img_sm1.webp",
+          "large": "/img/img_lg1.webp"
+        },
+        {
+          "thumb": "/img/img_sm2.webp",
+          "large": "/img/img_lg2.webp"
+        },
+        {
+          "thumb": "/img/img_sm3.webp",
+          "large": "/img/img_lg3.webp"
+        }
+      ],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "description": "Modern ethnic wear with a contemporary design and comfortable fit.",
+      "reviews": [
+        {
+          "id": 1,
+          "name": "Pooja Nair",
+          "rating": 5,
+          "text": "Stylish and comfortable for long wear.",
+          "avatar": "https://images.unsplash.com/photo-1527980965255-d3b416303d12"
+        },
+        {
+          "id": 2,
+          "name": "Rahul Verma",
+          "rating": 5,
+          "text": "Perfect fusion wear! Modern yet traditional. Loved the design.",
+          "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d"
+        },
+        {
+          "id": 3,
+          "name": "Anjali Singh",
+          "rating": 5,
+          "text": "Great for office parties! Comfortable yet elegant.",
+          "avatar": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1"
+        },
+        {
+          "id": 4,
+          "name": "Vikram Patel",
+          "rating": 5,
+          "text": "My wife loves this outfit! Perfect for family functions.",
+          "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e"
+        },
+        {
+          "id": 5,
+          "name": "Mona Sharma",
+          "rating": 5,
+          "text": "Beautiful modern ethnic wear! Perfect blend of tradition and contemporary style.",
+          "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2"
+        },
+        {
+          "id": 6,
+          "name": "Justine Henin",
+          "rating": 4,
+          "text": "Great quality, perfect fit, and the design looks even better in person—totally worth the purchase!",
+          "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Bridal Lehenga",
+      "price": 5500,
+      "rating": 5,
+      "images": [
+        {
+          "thumb": "/img/img_sm1.webp",
+          "large": "/img/img_lg1.webp"
+        },
+        {
+          "thumb": "/img/img_sm2.webp",
+          "large": "/img/img_lg2.webp"
+        },
+        {
+          "thumb": "/img/img_sm3.webp",
+          "large": "/img/img_lg3.webp"
+        }
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+      "reviews": [
+        {
+          "id": 1,
+          "name": "Priya Sharma",
+          "rating": 5,
+          "text": "Excellent quality! The dress fits perfectly and the fabric is very comfortable. I've received so many compliments!",
+          "avatar": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": 2,
+          "name": "Rahul Verma",
+          "rating": 5,
+          "text": "Best purchase ever! The stitching is excellent and the color looks exactly like in the picture. Very fast delivery too!",
+          "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80"
+        },
+        {
+          "id": 3,
+          "name": "Anjali Patel",
+          "rating": 5,
+          "text": "Perfect bridal lehenga! The embroidery is exquisite and the fit is amazing.",
+          "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80"
+        },
+        {
+          "id": 4,
+          "name": "Vikram Singh",
+          "rating": 5,
+          "text": "Bought this for my wedding. My bride looked absolutely stunning!",
+          "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e"
+        },
+        {
+          "id": 5,
+          "name": "Neha Gupta",
+          "rating": 5,
+          "text": "Beautiful bridal wear! Perfect for traditional Indian weddings.",
+          "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Office Formal Suit",
+      "price": 3200,
+      "rating": 4.7,
+      "images": [
+        {
+          "thumb": "/img/img_sm1.webp",
+          "large": "/img/img_lg1.webp"
+        },
+        {
+          "thumb": "/img/img_sm2.webp",
+          "large": "/img/img_lg2.webp"
+        },
+        {
+          "thumb": "/img/img_sm3.webp",
+          "large": "/img/img_lg3.webp"
+        }
+      ],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "description": "Professional office wear suit with a sharp and modern look.",
+      "reviews": [
+        {
+          "id": 1,
+          "name": "Amit Kumar",
+          "rating": 5,
+          "text": "Good fitting and professional look.",
+          "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e"
+        },
+        {
+          "id": 2,
+          "name": "Rajesh Nair",
+          "rating": 5,
+          "text": "Perfect for office meetings! Very professional and comfortable.",
+          "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d"
+        },
+        {
+          "id": 3,
+          "name": "Sunil Mehta",
+          "rating": 5,
+          "text": "Excellent formal suit. The fabric quality is premium and stitching is perfect.",
+          "avatar": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1"
+        },
+        {
+          "id": 4,
+          "name": "Priya Joshi",
+          "rating": 5,
+          "text": "Bought this for my husband. He looks very professional in this suit.",
+          "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2"
+        },
+        {
+          "id": 5,
+          "name": "Rahul Sharma",
+          "rating": 5,
+          "text": "Great for corporate events and office presentations. Highly recommended!",
+          "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Silk Saree",
+      "price": 4200,
+      "rating": 4.8,
+      "images": [
+        {
+          "thumb": "/img/img_sm1.webp",
+          "large": "/img/img_lg1.webp"
+        },
+        {
+          "thumb": "/img/img_sm2.webp",
+          "large": "/img/img_lg2.webp"
+        },
+        {
+          "thumb": "/img/img_sm3.webp",
+          "large": "/img/img_lg3.webp"
+        }
+      ],
+      "sizes": [
+        "Free Size"
+      ],
+      "description": "Premium silk saree with traditional design and rich texture.",
+      "reviews": [
+        {
+          "id": 1,
+          "name": "Sunita Rao",
+          "rating": 5,
+          "text": "Pure silk feel. Worth the price.",
+          "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330"
+        },
+        {
+          "id": 2,
+          "name": "Rekha Verma",
+          "rating": 5,
+          "text": "Beautiful silk saree! Perfect for weddings and special occasions.",
+          "avatar": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1"
+        },
+        {
+          "id": 3,
+          "name": "Anil Patel",
+          "rating": 5,
+          "text": "Bought this for my mother. She loved the pure silk quality.",
+          "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d"
+        },
+        {
+          "id": 4,
+          "name": "Kavita Sharma",
+          "rating": 5,
+          "text": "Exquisite silk saree! The border work is beautiful.",
+          "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2"
+        },
+        {
+          "id": 5,
+          "name": "Deepak Nair",
+          "rating": 5,
+          "text": "Perfect Diwali gift for my wife! She was very happy with the quality.",
+          "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e"
+        },
+        {
+          "id": 6,
+          "name": "Serena Shuttleworth",
+          "rating": 4,
+          "text": "Excellent quality clothing with a perfect fit—the fabric feels premium, the stitching is neat, and it looks even better after wearing. Highly recommended!",
+          "avatar": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&auto=format&fit=crop&q=80"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Kids Casual Dress",
+      "price": 1500,
+      "rating": 4.5,
+      "images": [
+        {
+          "thumb": "/img/img_sm1.webp",
+          "large": "/img/img_lg1.webp"
+        },
+        {
+          "thumb": "/img/img_sm2.webp",
+          "large": "/img/img_lg2.webp"
+        },
+        {
+          "thumb": "/img/img_sm3.webp",
+          "large": "/img/img_lg3.webp"
+        }
+      ],
+      "sizes": [
+        "S",
+        "M"
+      ],
+      "description": "Comfortable and cute casual dress for kids.",
+      "reviews": [
+        {
+          "id": 1,
+          "name": "Meena Patel",
+          "rating": 5,
+          "text": "My daughter loved it. Very soft fabric.",
+          "avatar": "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c"
+        },
+        {
+          "id": 2,
+          "name": "Raj Kumar",
+          "rating": 5,
+          "text": "Perfect for my 5-year-old daughter! She looks adorable in this dress.",
+          "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d"
+        },
+        {
+          "id": 3,
+          "name": "Sunita Sharma",
+          "rating": 5,
+          "text": "Very comfortable for kids. My daughter wears it to school regularly.",
+          "avatar": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1"
+        },
+        {
+          "id": 4,
+          "name": "Amit Verma",
+          "rating": 5,
+          "text": "Great quality kids dress! The fabric is soft and skin-friendly.",
+          "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e"
+        },
+        {
+          "id": 5,
+          "name": "Pooja Mehta",
+          "rating": 5,
+          "text": "Perfect for birthday parties! My daughter received many compliments.",
+          "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Gold Necklace Set",
+      "price": 8000,
+      "rating": 4.9,
+      "images": [
+        {
+          "thumb": "/img/img_sm1.webp",
+          "large": "/img/img_lg1.webp"
+        },
+        {
+          "thumb": "/img/img_sm2.webp",
+          "large": "/img/img_lg2.webp"
+        },
+        {
+          "thumb": "/img/img_sm3.webp",
+          "large": "/img/img_lg3.webp"
+        }
+      ],
+      "sizes": [
+        "One Size"
+      ],
+      "description": "Elegant gold necklace set suitable for weddings and special occasions.",
+      "reviews": [
+        {
+          "id": 1,
+          "name": "Rekha Malhotra",
+          "rating": 5,
+          "text": "Absolutely stunning jewellery set!",
+          "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2"
+        },
+        {
+          "id": 2,
+          "name": "Anjali Kapoor",
+          "rating": 5,
+          "text": "Perfect for my sister's wedding! The necklace set looks exquisite.",
+          "avatar": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1"
+        },
+        {
+          "id": 3,
+          "name": "Rajesh Singh",
+          "rating": 5,
+          "text": "Bought this for my wife's anniversary. She loved it!",
+          "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d"
+        },
+        {
+          "id": 4,
+          "name": "Priya Nair",
+          "rating": 5,
+          "text": "Beautiful jewellery set! Perfect for traditional outfits.",
+          "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330"
+        },
+        {
+          "id": 5,
+          "name": "Vikram Patel",
+          "rating": 5,
+          "text": "Excellent quality jewellery! Looks even better in person than in photos.",
+          "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Men's Formal Suit",
+      "price": 3800,
+      "rating": 4.6,
+      "images": [
+        {
+          "thumb": "/img/img_sm1.webp",
+          "large": "/img/img_lg1.webp"
+        },
+        {
+          "thumb": "/img/img_sm2.webp",
+          "large": "/img/img_lg2.webp"
+        },
+        {
+          "thumb": "/img/img_sm3.webp",
+          "large": "/img/img_lg3.webp"
+        }
+      ],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "description": "Men's formal suit with premium fabric and modern tailoring.",
+      "reviews": [
+        {
+          "id": 1,
+          "name": "Rohit Singh",
+          "rating": 5,
+          "text": "Good quality and proper fitting.",
+          "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d"
+        },
+        {
+          "id": 2,
+          "name": "Amit Sharma",
+          "rating": 5,
+          "text": "Perfect for interviews and office meetings! Very professional look.",
+          "avatar": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1"
+        },
+        {
+          "id": 3,
+          "name": "Sunil Verma",
+          "rating": 5,
+          "text": "Excellent formal suit! The fabric is premium and stitching is perfect.",
+          "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e"
+        },
+        {
+          "id": 4,
+          "name": "Priya Mehta",
+          "rating": 5,
+          "text": "Bought this for my husband's office party. He looked very handsome!",
+          "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2"
+        },
+        {
+          "id": 5,
+          "name": "Raj Malhotra",
+          "rating": 5,
+          "text": "Great for business meetings and corporate events. Highly recommended!",
+          "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d"
+        }
+      ]
+    }
+  ],
+  "innerBlog": [
+    {
+      "id": 1,
+      "title": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+      "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "author": "Kiran Patel",
+      "date": "20 May 2023",
+      "authorImage": "/img/ic_kiran.webp",
+      "image": "/img/blog1.webp",
+      "comments": [
+        {
+          "id": 1,
+          "name": "Priya Sharma",
+          "date": "25 May 2023",
+          "text": "Excellent blog post! Very informative and well-written.",
+          "avatar": "https://i.pravatar.cc/150?img=1"
+        },
+        {
+          "id": 2,
+          "name": "Rahul Verma",
+          "date": "22 May 2023",
+          "text": "Thanks for sharing this valuable information. Looking forward to more posts!",
+          "avatar": "https://i.pravatar.cc/150?img=2"
+        },
+        {
+          "id": 3,
+          "name": "Aarav Mehta",
+          "date": "26 May 2023",
+          "text": "Great insights on printing industry history! Really enjoyed reading this.",
+          "avatar": "https://i.pravatar.cc/150?img=3"
+        },
+        {
+          "id": 4,
+          "name": "Ishita Reddy",
+          "date": "27 May 2023",
+          "text": "Well researched article. The historical context was particularly interesting.",
+          "avatar": "https://i.pravatar.cc/150?img=4"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.",
+      "content": "The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.",
+      "author": "Kishan Patel",
+      "date": "30 May 2023",
+      "authorImage": "/img/ic_kishan.webp",
+      "image": "/img/blog2.webp",
+      "comments": [
+        {
+          "id": 1,
+          "name": "Neha Bhatt",
+          "date": "1 June 2023",
+          "text": "Great insights on Lorem Ipsum usage in modern web design!",
+          "avatar": "https://i.pravatar.cc/150?img=10"
+        },
+        {
+          "id": 2,
+          "name": "Vikram Singh",
+          "date": "2 June 2023",
+          "text": "The article explains the technical aspects very clearly. Good job!",
+          "avatar": "https://i.pravatar.cc/150?img=5"
+        },
+        {
+          "id": 3,
+          "name": "Ananya Das",
+          "date": "3 June 2023",
+          "text": "As a web developer, I found this extremely useful for my projects.",
+          "avatar": "https://i.pravatar.cc/150?img=6"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Berbeza dari pendapat umum yang popular, Lorem Ipsum bukan karya text secara rambang.",
+      "content": "Berbeza dari pendapat umum yang popular, Lorem Ipsum bukan karya text secara rambang. Ia mempunyai akar dari sebahagian sastera Latin klasik dari 45 SM, menjadikannya berusia 2000 tahun. Richard McClintock, seorang profesor Latin di Hampden-Sydney College di Virginia, telah mencari satu dari perkataan Latin yang kurang difahami, consectetur, dari Lorem Ipsum, dan melalui petikan dari perkataan tersebut di dalam sastera klasik, telah menemui sumber yang tidak dapat diragukan.",
+      "author": "Neha Bhatt",
+      "date": "20 May 2023",
+      "authorImage": "/img/ic_neha.webp",
+      "image": "/img/ic_blog3.webp",
+      "comments": [
+        {
+          "id": 1,
+          "name": "Ankit Patil",
+          "date": "22 May 2023",
+          "text": "Fascinating history behind Lorem Ipsum!",
+          "avatar": "https://i.pravatar.cc/150?img=20"
+        },
+        {
+          "id": 2,
+          "name": "Karan Malhotra",
+          "date": "23 May 2023",
+          "text": "I never knew Lorem Ipsum had such deep historical roots. Great article!",
+          "avatar": "https://i.pravatar.cc/150?img=7"
+        },
+        {
+          "id": 3,
+          "name": "Sneha Joshi",
+          "date": "24 May 2023",
+          "text": "The Latin connection is really interesting. Well researched!",
+          "avatar": "https://i.pravatar.cc/150?img=8"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Sejumlah text seragam Lorem Ipsum yang digunakan semenjak 1500an di terbitkan di bawah ini untuk mereka yang berminat.",
+      "content": "Sejumlah text seragam Lorem Ipsum yang digunakan semenjak 1500an di terbitkan di bawah ini untuk mereka yang berminat. Sections 1.10.32 and 1.10.33 from 'de Finibus Bonorum et Malorum' by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "author": "Ankit Patil",
+      "date": "14 April 2023",
+      "authorImage": "/img/ic_ankit.webp",
+      "image": "/img/ic_blog4.webp",
+      "comments": [
+        {
+          "id": 1,
+          "name": "Parth Patel",
+          "date": "16 April 2023",
+          "text": "Great read! The historical context was fascinating.",
+          "avatar": "https://i.pravatar.cc/150?img=25"
+        },
+        {
+          "id": 2,
+          "name": "Rajesh Kumar",
+          "date": "17 April 2023",
+          "text": "The Cicero reference was particularly enlightening. Thanks for sharing!",
+          "avatar": "https://i.pravatar.cc/150?img=9"
+        },
+        {
+          "id": 3,
+          "name": "Maya Sharma",
+          "date": "18 April 2023",
+          "text": "Very detailed analysis. I learned something new today!",
+          "avatar": "https://i.pravatar.cc/150?img=10"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "author": "Parth Patel",
+      "date": "10 March 2023",
+      "authorImage": "/img/ic_parth.webp",
+      "image": "/img/ic_blog5.webp",
+      "comments": [
+        {
+          "id": 1,
+          "name": "Nupur Shah",
+          "date": "12 March 2023",
+          "text": "Very well explained! Helped me understand the concept better.",
+          "avatar": "https://i.pravatar.cc/150?img=30"
+        },
+        {
+          "id": 2,
+          "name": "Arjun Kapoor",
+          "date": "13 March 2023",
+          "text": "Clear and concise explanation. Perfect for beginners!",
+          "avatar": "https://i.pravatar.cc/150?img=11"
+        },
+        {
+          "id": 3,
+          "name": "Priyanka Reddy",
+          "date": "14 March 2023",
+          "text": "The examples really helped solidify the concepts. Great job!",
+          "avatar": "https://i.pravatar.cc/150?img=12"
+        },
+        {
+          "id": 4,
+          "name": "Robert Williams",
+          "date": "January 31, 2026",
+          "text": "Really insightful post—loved how clearly you explained everything, looking forward to reading more blogs like this!",
+          "avatar": "https://i.pravatar.cc/150?img=43"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+      "author": "Nupur Shah",
+      "date": "10 March 2023",
+      "authorImage": "/img/ic_nupur.webp",
+      "image": "/img/ic_blog6.webp",
+      "comments": [
+        {
+          "id": 1,
+          "name": "Kiran Patel",
+          "date": "12 March 2023",
+          "text": "Excellent content! Looking forward to more articles.",
+          "avatar": "https://i.pravatar.cc/150?img=1"
+        },
+        {
+          "id": 2,
+          "name": "Suresh Nair",
+          "date": "13 March 2023",
+          "text": "Well structured article with great flow of information.",
+          "avatar": "https://i.pravatar.cc/150?img=13"
+        },
+        {
+          "id": 3,
+          "name": "Divya Iyer",
+          "date": "14 March 2023",
+          "text": "The writing style is engaging and informative. Keep it up!",
+          "avatar": "https://i.pravatar.cc/150?img=14"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Summer Fashion Trends 2023: Latest Styles and Designs",
+      "content": "Summer fashion trends for 2023 focus on sustainability and comfort. Lightweight fabrics, pastel colors, and minimalist designs are dominating this season's collections. Sustainable materials like organic cotton, bamboo, and hemp are becoming increasingly popular among conscious consumers. Floral patterns, wide-leg pants, and breathable linen outfits are must-haves for the summer wardrobe.",
+      "author": "Kiran Patel",
+      "date": "15 June 2023",
+      "authorImage": "https://i.pravatar.cc/150?img=1",
+      "image": "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=600",
+      "comments": [
+        {
+          "id": 1,
+          "name": "Sunita Rao",
+          "date": "18 June 2023",
+          "text": "Can't wait to try these summer trends! Especially the sustainable options.",
+          "avatar": "https://i.pravatar.cc/150?img=35"
+        },
+        {
+          "id": 2,
+          "name": "Rahul Mehta",
+          "date": "16 June 2023",
+          "text": "Great overview of summer fashion. The sustainable focus is much needed!",
+          "avatar": "https://i.pravatar.cc/150?img=15"
+        },
+        {
+          "id": 3,
+          "name": "Anjali Kapoor",
+          "date": "19 June 2023",
+          "text": "Love the pastel trend! Perfect for summer weddings.",
+          "avatar": "https://i.pravatar.cc/150?img=16"
+        },
+        {
+          "id": 4,
+          "name": "Vikas Sharma",
+          "date": "20 June 2023",
+          "text": "The sustainable fashion section was eye-opening. Time to update my wardrobe!",
+          "avatar": "https://i.pravatar.cc/150?img=17"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Eco-Friendly Fabrics: Sustainable Choices for Modern Wardrobe",
+      "content": "Eco-friendly fabrics like organic cotton, bamboo, hemp, and recycled polyester are revolutionizing the fashion industry. These sustainable options help reduce environmental impact while maintaining style and comfort. Organic cotton uses 91% less water than conventional cotton, while bamboo fabric is naturally antibacterial and biodegradable. Choosing sustainable fabrics is not just a trend but a necessity for preserving our planet for future generations.",
+      "author": "Kiyara Patel",
+      "date": "28 June 2023",
+      "authorImage": "https://i.pravatar.cc/150?img=5",
+      "image": "https://images.unsplash.com/photo-1445205170230-053b83016050?w=600",
+      "comments": [
+        {
+          "id": 1,
+          "name": "Rajesh Kumar",
+          "date": "30 June 2023",
+          "text": "Great information about sustainable fashion! I'm switching to eco-friendly fabrics.",
+          "avatar": "https://i.pravatar.cc/150?img=40"
+        },
+        {
+          "id": 2,
+          "name": "Meena Singh",
+          "date": "1 July 2023",
+          "text": "The water usage statistics are shocking! We need more articles like this.",
+          "avatar": "https://i.pravatar.cc/150?img=18"
+        },
+        {
+          "id": 3,
+          "name": "Rohit Verma",
+          "date": "2 July 2023",
+          "text": "Bamboo fabric is amazing! So soft and eco-friendly.",
+          "avatar": "https://i.pravatar.cc/150?img=19"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Traditional Saree Collection: Timeless Elegance for Modern Women",
+      "content": "Traditional sarees have evolved to meet modern sensibilities while maintaining their timeless elegance. From Banarasi silk to Kanchipuram, each region of India offers unique saree styles. Modern designers are blending traditional craftsmanship with contemporary designs, creating pieces that appeal to both younger and older generations. The saree remains the most versatile garment, suitable for weddings, office wear, and casual occasions.",
+      "author": "Neha Bhatt",
+      "date": "10 June 2023",
+      "authorImage": "https://i.pravatar.cc/150?img=10",
+      "image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400",
+      "comments": [
+        {
+          "id": 1,
+          "name": "Anjali Kapoor",
+          "date": "12 June 2023",
+          "text": "Beautiful collection! Love how traditional sarees are getting a modern twist.",
+          "avatar": "https://i.pravatar.cc/150?img=45"
+        },
+        {
+          "id": 2,
+          "name": "Kavita Nair",
+          "date": "13 June 2023",
+          "text": "As a saree enthusiast, I appreciate the detailed regional breakdown.",
+          "avatar": "https://i.pravatar.cc/150?img=20"
+        },
+        {
+          "id": 3,
+          "name": "Sanjay Patel",
+          "date": "14 June 2023",
+          "text": "My wife collects sarees and she loved this article! Well written.",
+          "avatar": "https://i.pravatar.cc/150?img=21"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Casual Kurtis: Perfect for Office and Everyday Wear",
+      "content": "Casual kurtis have become the go-to choice for modern Indian women looking for comfort without compromising on style. These versatile garments blend tradition with contemporary fashion, making them perfect for office wear, college, and casual outings. With various fabrics like cotton, linen, and chiffon, and designs ranging from simple to heavily embroidered, there's a kurti for every occasion and season.",
+      "author": "Ankit Patil",
+      "date": "5 July 2023",
+      "authorImage": "https://i.pravatar.cc/150?img=20",
+      "image": "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=400",
+      "comments": [
+        {
+          "id": 1,
+          "name": "Meena Sharma",
+          "date": "7 July 2023",
+          "text": "Kurtis are my daily wear! So comfortable and stylish.",
+          "avatar": "https://i.pravatar.cc/150?img=50"
+        },
+        {
+          "id": 2,
+          "name": "Ritu Gupta",
+          "date": "8 July 2023",
+          "text": "The fabric guide is very helpful. Cotton kurtis are perfect for Indian summers!",
+          "avatar": "https://i.pravatar.cc/150?img=22"
+        },
+        {
+          "id": 3,
+          "name": "Amit Kumar",
+          "date": "9 July 2023",
+          "text": "My sister loves wearing kurtis to college. Shared this with her!",
+          "avatar": "https://i.pravatar.cc/150?img=23"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Lehenga Choli Designs: Perfect for Wedding Season",
+      "content": "Lehenga choli remains the ultimate choice for Indian weddings and festive occasions. Modern designs incorporate traditional embroidery techniques like zari, zardozi, and gota patti with contemporary silhouettes. From pastel shades for daytime functions to rich jewel tones for evening events, there's a lehenga for every wedding function. Designers are also creating lightweight options for comfort during long ceremonies.",
+      "author": "Parth Patel",
+      "date": "22 June 2023",
+      "authorImage": "https://i.pravatar.cc/150?img=25",
+      "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400",
+      "comments": [
+        {
+          "id": 1,
+          "name": "Riya Malhotra",
+          "date": "24 June 2023",
+          "text": "Shopping for wedding lehengas! This guide is so helpful.",
+          "avatar": "https://i.pravatar.cc/150?img=55"
+        },
+        {
+          "id": 2,
+          "name": "Simran Kaur",
+          "date": "25 June 2023",
+          "text": "The color palette suggestions are perfect for different wedding functions.",
+          "avatar": "https://i.pravatar.cc/150?img=24"
+        },
+        {
+          "id": 3,
+          "name": "Arun Joshi",
+          "date": "26 June 2023",
+          "text": "My daughter is getting married next month. This article helped us choose her lehenga!",
+          "avatar": "https://i.pravatar.cc/150?img=25"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Designer Blouses: Elevate Your Saree Game",
+      "content": "Designer blouses can transform a simple saree into a fashion statement. From backless designs to high necks, from full sleeves to cold shoulders, blouse designs have evolved dramatically. Embellishments like embroidery, sequins, and stone work add glamour, while innovative cuts and patterns bring modernity to traditional wear. The right blouse can make the same saree look different each time you wear it.",
+      "author": "Nupur Shah",
+      "date": "18 July 2023",
+      "authorImage": "https://i.pravatar.cc/150?img=30",
+      "image": "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=400",
+      "comments": [
+        {
+          "id": 1,
+          "name": "Kavita Joshi",
+          "date": "20 July 2023",
+          "text": "Love the modern blouse designs! They make traditional sarees look so contemporary.",
+          "avatar": "https://i.pravatar.cc/150?img=60"
+        },
+        {
+          "id": 2,
+          "name": "Tanvi Rao",
+          "date": "21 July 2023",
+          "text": "The blouse designs are stunning! Time to revamp my saree collection.",
+          "avatar": "https://i.pravatar.cc/150?img=26"
+        },
+        {
+          "id": 3,
+          "name": "Nikhil Deshmukh",
+          "date": "22 July 2023",
+          "text": "My wife always complains about boring blouses. Shared this with her - she loved it!",
+          "avatar": "https://i.pravatar.cc/150?img=27"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "title": "Winter Collection 2023: Stay Warm in Style",
+      "content": "Winter fashion for 2023 combines warmth with style through luxurious fabrics and innovative designs. Cashmere sweaters, wool coats, and velvet dresses dominate the season. Earth tones and jewel colors are trending, along with layering techniques that allow for both indoor comfort and outdoor warmth. Sustainable wool and recycled materials are gaining popularity among eco-conscious consumers.",
+      "author": "Kiran Patel",
+      "date": "5 September 2023",
+      "authorImage": "img/ic_kiran.webp",
+      "image": "img/blog2.webp",
+      "comments": [
+        {
+          "id": 1,
+          "name": "Vikram Singh",
+          "date": "8 September 2023",
+          "text": "Perfect timing for winter shopping! Love the sustainable options.",
+          "avatar": "https://i.pravatar.cc/150?img=65"
+        },
+        {
+          "id": 2,
+          "name": "Priyanka Mehta",
+          "date": "9 September 2023",
+          "text": "Cashmere sweaters are my weakness! Great collection ideas.",
+          "avatar": "https://i.pravatar.cc/150?img=28"
+        },
+        {
+          "id": 3,
+          "name": "Rahul Choudhary",
+          "date": "10 September 2023",
+          "text": "The layering tips are very practical for Indian winters.",
+          "avatar": "https://i.pravatar.cc/150?img=29"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "title": "Festive Season Shopping Guide: Diwali Special Collection",
+      "content": "Diwali fashion is all about sparkle, color, and tradition meeting modernity. This year's trends include pastel lehengas, embroidered sarees, and contemporary ethnic wear. Sustainable fashion takes center stage with eco-friendly fabrics and natural dyes. From traditional outfits for puja ceremonies to cocktail dresses for parties, our Diwali collection has something for every celebration.",
+      "author": "Kiran Patel",
+      "date": "12 October 2023",
+      "authorImage": "https://i.pravatar.cc/150?img=1",
+      "image": "img/blog1.webp",
+      "comments": [
+        {
+          "id": 1,
+          "name": "Priya Nair",
+          "date": "15 October 2023",
+          "text": "Excited for Diwali shopping! The collection looks amazing.",
+          "avatar": "https://i.pravatar.cc/150?img=70"
+        },
+        {
+          "id": 2,
+          "name": "Anil Sharma",
+          "date": "16 October 2023",
+          "text": "Pastel lehengas are trending this Diwali! Great suggestions.",
+          "avatar": "https://i.pravatar.cc/150?img=30"
+        },
+        {
+          "id": 3,
+          "name": "Sonia Kapoor",
+          "date": "17 October 2023",
+          "text": "Love the emphasis on sustainable fashion for festivals. Well done!",
+          "avatar": "https://i.pravatar.cc/150?img=31"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "title": "Anarkali Suits: Royal Look for Special Occasions",
+      "content": "Anarkali suits continue to reign supreme for special occasions, offering a regal look that combines Mughal-era elegance with contemporary style. These floor-length frock-style suits feature intricate embroidery, rich fabrics, and flowing silhouettes that create a dramatic effect. Modern variations include shorter lengths for casual wear, jacket-style Anarkalis, and fusion designs that blend Indian and Western elements.",
+      "author": "Neha Bhatt",
+      "date": "8 September 2023",
+      "authorImage": "img/ic_neha.webp",
+      "image": "img/ic_blog3.webp",
+      "comments": [
+        {
+          "id": 1,
+          "name": "Sunil Verma",
+          "date": "10 September 2023",
+          "text": "Anarkali suits are perfect for weddings! My wife loves them.",
+          "avatar": "https://i.pravatar.cc/150?img=75"
+        },
+        {
+          "id": 2,
+          "name": "Pooja Reddy",
+          "date": "11 September 2023",
+          "text": "The historical context of Anarkali suits is fascinating!",
+          "avatar": "https://i.pravatar.cc/150?img=32"
+        },
+        {
+          "id": 3,
+          "name": "Karan Malhotra",
+          "date": "12 September 2023",
+          "text": "Jacket-style Anarkalis are my favorite! So elegant yet comfortable.",
+          "avatar": "https://i.pravatar.cc/150?img=33"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "title": "Silk Sarees: Luxury Fabrics for Grand Celebrations",
+      "content": "Silk sarees represent the pinnacle of Indian textile heritage, with each region producing unique varieties. From Banarasi and Kanchipuram to Mysore and Assam silk, each type has distinct characteristics. Pure silk sarees are investments that last generations, often becoming family heirlooms. Modern designs incorporate traditional weaving techniques with contemporary patterns, making them suitable for both traditional ceremonies and modern events.",
+      "author": "Ankit Patil",
+      "date": "20 September 2023",
+      "authorImage": "https://i.pravatar.cc/150?img=20",
+      "image": "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=400",
+      "comments": [
+        {
+          "id": 1,
+          "name": "Deepa Reddy",
+          "date": "22 September 2023",
+          "text": "Nothing beats the elegance of a silk saree! Timeless beauty.",
+          "avatar": "https://i.pravatar.cc/150?img=80"
+        },
+        {
+          "id": 2,
+          "name": "Mohan Iyer",
+          "date": "23 September 2023",
+          "text": "My grandmother's silk sarees are still in perfect condition after 50 years!",
+          "avatar": "https://i.pravatar.cc/150?img=34"
+        },
+        {
+          "id": 3,
+          "name": "Shreya Kapoor",
+          "date": "24 September 2023",
+          "text": "The regional breakdown of silk varieties is very informative.",
+          "avatar": "https://i.pravatar.cc/150?img=35"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "title": "Indo-Western Fusion: Modern Twist to Traditional Outfits",
+      "content": "Indo-Western fusion fashion blends the best of Indian craftsmanship with Western silhouettes, creating unique outfits that appeal to global sensibilities. Think saree gowns, dhoti pants with crop tops, lehenga skirts with shirts, and kurta dresses. This trend allows for creative expression while maintaining cultural roots, making it popular among the younger generation and NRIs looking for versatile ethnic wear.",
+      "author": "Parth Patel",
+      "date": "15 October 2023",
+      "authorImage": "img/ic_parth.webp",
+      "image": "img/ic_blog5.webp",
+      "comments": [
+        {
+          "id": 1,
+          "name": "Rohan Desai",
+          "date": "17 October 2023",
+          "text": "Love fusion wear! Perfect for parties where you want to stand out.",
+          "avatar": "https://i.pravatar.cc/150?img=85"
+        },
+        {
+          "id": 2,
+          "name": "Neha Kapoor",
+          "date": "18 October 2023",
+          "text": "As an NRI, fusion wear is perfect for multicultural events.",
+          "avatar": "https://i.pravatar.cc/150?img=36"
+        },
+        {
+          "id": 3,
+          "name": "Amitabh Roy",
+          "date": "19 October 2023",
+          "text": "The creativity in fusion fashion is amazing! Keep innovating.",
+          "avatar": "https://i.pravatar.cc/150?img=37"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "title": "Accessories to Complete Your Ethnic Look",
+      "content": "The right accessories can elevate any ethnic outfit from ordinary to extraordinary. Traditional jewelry like jhumkas, haath phool, and maang tikkas are being reimagined in contemporary designs. Potli bags, mojris, and stoles complete the look while adding functionality. Modern accessories include minimalist jewelry that can be layered, convertible pieces that serve multiple purposes, and sustainable options made from eco-friendly materials.",
+      "author": "Nupur Shah",
+      "date": "25 October 2023",
+      "authorImage": "https://i.pravatar.cc/150?img=25",
+      "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400",
+      "comments": [
+        {
+          "id": 1,
+          "name": "Tanya Gupta",
+          "date": "27 October 2023",
+          "text": "Accessories make all the difference! Great tips for completing ethnic looks.",
+          "avatar": "https://i.pravatar.cc/150?img=90"
+        },
+        {
+          "id": 2,
+          "name": "Ravi Shankar",
+          "date": "28 October 2023",
+          "text": "The sustainable accessories section is much needed in today's world.",
+          "avatar": "https://i.pravatar.cc/150?img=38"
+        },
+        {
+          "id": 3,
+          "name": "Smita Patel",
+          "date": "29 October 2023",
+          "text": "Convertible jewelry is genius! One piece multiple looks.",
+          "avatar": "https://i.pravatar.cc/150?img=39"
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email": "test@example.com",
+      "password": "password123",
+      "name": "Test User",
+      "createdAt": "2024-01-01T00:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "email": "user@example.com",
+      "password": "user123",
+      "name": "Demo User",
+      "createdAt": "2024-01-15T00:00:00.000Z"
+    },
+    {
+      "id": 1769863533970,
+      "email": "lorem@gmail.com",
+      "password": "loremipsum123",
+      "name": "lorem",
+      "createdAt": "2026-01-31T12:45:33.970Z"
+    }
+  ]
+}

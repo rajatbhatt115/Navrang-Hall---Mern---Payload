@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: navrang-hall-payload-backend
+    env: node
+    buildCommand: cd backend && npm install && npm run build
+    startCommand: cd backend && npm start
+    envVars:
+      - key: DATABASE_URL
+        sync: false # Set this in the Render dashboard instead
+      - key: PAYLOAD_SECRET
+        generateValue: true
+      - key: NEXT_PUBLIC_SERVER_URL
+        value: https://navrang-hall-payload-backend.onrender.com
+
+  - type: static
+    name: navrang-hall-frontend
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: frontend/dist
+    envVars:
+      - key: VITE_API_LIVE
+        value: https://navrang-hall-payload-backend.onrender.com/api
