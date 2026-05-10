@@ -80,23 +80,48 @@ export const Orders: CollectionConfig = {
       path: '/create-order',
       method: 'post',
       handler: async (req) => {
-        const body = req.json ? await req.json() : {}
-        const { amount, currency = 'INR', items, customer } = (body || {}) as any;
-
         try {
-          const Razorpay = (await import('razorpay')).default;
+          // Robust body parsing for Payload v3
+          let body = {};
+          try {
+            body = await req.json();
+          } catch (e) {
+            // Fallback if req.json() fails
+            const text = await req.text();
+            body = JSON.parse(text);
+          }
+          
+          const { amount, currency = 'INR', items, customer } = (body || {}) as any;
+
+          if (!amount) {
+            return Response.json({ error: 'Amount is required' }, { status: 400 });
+          }
+
+          const RazorpayModule = await import('razorpay');
+          const Razorpay = (RazorpayModule as any).default || RazorpayModule;
+          
+          if (typeof Razorpay !== 'function') {
+            throw new Error(`Razorpay import failed: expected a constructor but got ${typeof Razorpay}`);
+          }
+
           const razorpay = new Razorpay({
-            key_id: process.env.RAZORPAY_KEY_ID || 'rzp_test_1DP5mmOlF5G5ag',
-            key_secret: process.env.RAZORPAY_KEY_SECRET || '',
+            key_id: (process.env.RAZORPAY_KEY_ID || 'rzp_test_1DP5mmOlF5G5ag').trim(),
+            key_secret: (process.env.RAZORPAY_KEY_SECRET || '').trim(),
           });
 
           const options = {
-            amount: Math.round(amount * 100), // amount in the smallest currency unit
+            amount: Math.round(Number(amount) * 100), // amount in the smallest currency unit
             currency,
             receipt: `receipt_${Date.now()}`,
           };
 
-          const razorpayOrder = await razorpay.orders.create(options);
+          let razorpayOrder;
+          try {
+            razorpayOrder = await razorpay.orders.create(options);
+          } catch (rzkError: any) {
+            console.error('Razorpay SDK Error:', rzkError);
+            throw new Error(`Razorpay SDK rejected order: ${rzkError.description || rzkError.message || JSON.stringify(rzkError)}`);
+          }
 
           // Create order record in Payload
           await req.payload.create({
@@ -104,19 +129,22 @@ export const Orders: CollectionConfig = {
             data: {
               orderId: razorpayOrder.id,
               razorpayOrderId: razorpayOrder.id,
-              customerName: customer?.name,
-              customerEmail: customer?.email,
-              customerContact: customer?.contact,
-              totalAmount: amount,
+              customerName: customer?.name || 'Guest',
+              customerEmail: customer?.email || 'guest@example.com',
+              customerContact: customer?.contact || '0000000000',
+              totalAmount: Number(amount),
               currency,
               status: 'pending',
-              items,
+              items: items || [],
             } as any,
           });
 
           return Response.json(razorpayOrder);
         } catch (error: any) {
-          return Response.json({ error: error.message }, { status: 500 });
+          console.error('Razorpay Order Error:', error);
+          // Return the actual error message from Razorpay if available
+          const errorMessage = error.description || error.message || (typeof error === 'string' ? error : 'Failed to create Razorpay order');
+          return Response.json({ error: errorMessage }, { status: 500 });
         }
       },
     },

@@ -129,7 +129,8 @@ const RatingSection = () => {
 
     } catch (error) {
       console.error("Error initializing Razorpay:", error);
-      alert("Error initializing payment. Please try again.");
+      const errorMsg = error.response?.data?.error || error.message || "Unknown error";
+      alert(`Error initializing payment: ${errorMsg}`);
     }
   };
 
