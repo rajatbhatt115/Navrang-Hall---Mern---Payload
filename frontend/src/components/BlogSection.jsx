@@ -26,11 +26,11 @@ const BlogSection = () => {
     return null
   }
 
-  if (!blogData) {
+  if (!blogData || !blogData.mainBlog) {
     return null
   }
 
-  const { mainBlog, smallBlogs } = blogData
+  const { mainBlog, smallBlogs = [] } = blogData
 
   return (
     <section className="blog-section">

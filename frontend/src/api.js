@@ -5,31 +5,40 @@ const API_BASE_URL =
   import.meta.env.VITE_API_LIVE ||
   'http://localhost:3000/api';
 
-function flattenMediaUrls(obj) {
+function flattenMediaUrls(obj, visited = new WeakSet()) {
+  if (!obj || typeof obj !== 'object' || visited.has(obj)) return;
+  visited.add(obj);
+
   if (Array.isArray(obj)) {
-    obj.forEach(flattenMediaUrls);
-  } else if (obj !== null && typeof obj === 'object') {
+    obj.forEach(item => flattenMediaUrls(item, visited));
+  } else {
     for (const key in obj) {
       if (obj[key] && typeof obj[key] === 'object' && obj[key].url && typeof obj[key].url === 'string') {
+        // Store original ID for later use (e.g. adding to cart)
+        obj[key + '_id'] = obj[key].id;
         obj[key] = obj[key].url;
-      } else {
-        flattenMediaUrls(obj[key]);
+      } else if (obj[key] && typeof obj[key] === 'object') {
+        flattenMediaUrls(obj[key], visited);
       }
     }
   }
 }
 
 // Recursive function to map oldId to id for frontend compatibility
-function mapOldIdToId(obj) {
+function mapOldIdToId(obj, visited = new WeakSet()) {
+  if (!obj || typeof obj !== 'object' || visited.has(obj)) return;
+  visited.add(obj);
+
   if (Array.isArray(obj)) {
-    obj.forEach(mapOldIdToId);
-  } else if (obj !== null && typeof obj === 'object') {
-    if (obj.oldId !== undefined && obj.id === undefined) {
+    obj.forEach(item => mapOldIdToId(item, visited));
+  } else {
+    if (obj.oldId !== undefined) {
+      obj._payloadId = obj.id; // Keep original MongoDB ID just in case
       obj.id = obj.oldId;
     }
     for (const key in obj) {
-      if (typeof obj[key] === 'object') {
-        mapOldIdToId(obj[key]);
+      if (obj[key] && typeof obj[key] === 'object') {
+        mapOldIdToId(obj[key], visited);
       }
     }
   }
@@ -38,12 +47,24 @@ function mapOldIdToId(obj) {
 // Add a response interceptor to handle Payload CMS data format
 axios.interceptors.response.use(
   (response) => {
+    // Basic safety check for response.data
+    // If it's a string, it's likely an HTML error page or redirect
+    if (typeof response.data === 'string' && response.data.includes('<!DOCTYPE html>')) {
+      console.warn('API returned HTML instead of JSON. Possible redirect to login or 500 error.');
+      // Return a safe empty object/array based on the URL if possible, 
+      // but an empty array is generally safer for .map() calls
+      response.data = []; 
+      return response;
+    }
+
+    if (!response.data || typeof response.data !== 'object') return response;
+
     // Payload CMS returns collections inside a 'docs' array for GET lists
-    if (response.data && response.data.docs) {
+    if (response.data.docs) {
       response.data = response.data.docs;
     }
     // Payload CMS returns created/updated docs inside 'doc' for POST/PATCH
-    else if (response.data && response.data.doc) {
+    else if (response.data.doc) {
       response.data = response.data.doc;
     }
     
@@ -56,6 +77,7 @@ axios.interceptors.response.use(
     return response;
   },
   (error) => {
+    console.error('API Error:', error);
     return Promise.reject(error);
   }
 );
@@ -82,7 +104,7 @@ const api = {
   },
   getTestimonials: () => axios.get(`${API_BASE_URL}/testimonials`),
   getBlogHome: async () => {
-    const res = await axios.get(`${API_BASE_URL}/globals/blogs`);
+    const res = await axios.get(`${API_BASE_URL}/globals/blog-settings`);
     return { data: res.data.homeBlogs || [] };
   },
   getAboutContent: async () => {
@@ -99,27 +121,32 @@ const api = {
 
   // ==================== BLOG PAGE ====================
   getBlogPages: async () => {
-    const res = await axios.get(`${API_BASE_URL}/globals/blogs`);
-    const blogPages = res.data.blogPages || {};
-    const array = Object.keys(blogPages).map(page => ({ page: parseInt(page), ...blogPages[page] }));
-    return { data: array };
+    const res = await axios.get(`${API_BASE_URL}/globals/blog-settings`);
+    const blogPagesArray = res.data.blogPages || [];
+    // Map pageNumber to page for frontend compatibility
+    const mappedPages = blogPagesArray.map(p => ({
+      ...p,
+      page: p.pageNumber
+    }));
+    return { data: mappedPages };
   },
   getBlogPage: async (page) => {
-    const res = await axios.get(`${API_BASE_URL}/globals/blogs`);
-    const blogPage = res.data.blogPages ? res.data.blogPages[page] : null;
+    const res = await axios.get(`${API_BASE_URL}/globals/blog-settings`);
+    const blogPages = res.data.blogPages || [];
+    const blogPage = blogPages.find(p => p.pageNumber === parseInt(page));
     if (!blogPage) return { data: null };
-    return { data: { page: parseInt(page), ...blogPage } };
+    return { data: { ...blogPage, page: blogPage.pageNumber } };
   },
 
   // ==================== INNER BLOG PAGE ====================
   getInnerBlog: async (id) => {
-    const res = await axios.get(`${API_BASE_URL}/innerBlog?where[oldId][equals]=${id}`);
+    const res = await axios.get(`${API_BASE_URL}/blogs?where[oldId][equals]=${id}`);
     return { data: res.data[0] || null };
   },
 
   // ==================== BLOG COMMENTS ====================
   addBlogComment: async (blogId, commentData) => {
-    const blogRes = await axios.get(`${API_BASE_URL}/innerBlog?where[oldId][equals]=${blogId}`);
+    const blogRes = await axios.get(`${API_BASE_URL}/blogs?where[oldId][equals]=${blogId}`);
     const blog = blogRes.data[0];
     if (!blog) throw new Error('Blog not found');
     
@@ -131,12 +158,12 @@ const api = {
       name: commentData.name,
       date: new Date().toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' }),
       text: commentData.text,
-      avatar: commentData.avatar || `https://i.pravatar.cc/150?img=${Math.floor(Math.random() * 70) + 1}`
+      avatar: commentData.avatar_id || commentData.avatar || `https://i.pravatar.cc/150?img=${Math.floor(Math.random() * 70) + 1}`
     };
     
     existingComments.push(commentToAdd);
     
-    await axios.patch(`${API_BASE_URL}/innerBlog/${blog.id}`, { comments: existingComments });
+    await axios.patch(`${API_BASE_URL}/blogs/${blog._payloadId || blog.id}`, { comments: existingComments });
     return { data: commentToAdd };
   },
 
@@ -153,16 +180,38 @@ const api = {
   // ==================== CART PAGE ====================
   getCartItems: () => axios.get(`${API_BASE_URL}/cartItems?limit=100`),
   updateCartItem: async (id, data) => {
-    // Old id or Payload id? The frontend uses the object id from getCartItems
+    // If data contains image_id, use it as image
+    if (data.image_id) {
+      data.image = data.image_id;
+      delete data.image_id;
+    }
     return axios.patch(`${API_BASE_URL}/cartItems/${id}`, data);
   },
   deleteCartItem: (id) => axios.delete(`${API_BASE_URL}/cartItems/${id}`),
-  addToCart: (data) => axios.post(`${API_BASE_URL}/cartItems`, data),
+  addToCart: (data) => {
+    if (data.image_id) {
+      data.image = data.image_id;
+      delete data.image_id;
+    }
+    return axios.post(`${API_BASE_URL}/cartItems`, data);
+  },
 
   // ==================== WISHLIST PAGE ====================
   getWishlistItems: () => axios.get(`${API_BASE_URL}/wishlistItems?limit=100`),
-  addToWishlist: (data) => axios.post(`${API_BASE_URL}/wishlistItems`, data),
-  updateWishlistItem: (id, data) => axios.patch(`${API_BASE_URL}/wishlistItems/${id}`, data),
+  addToWishlist: (data) => {
+    if (data.image_id) {
+      data.image = data.image_id;
+      delete data.image_id;
+    }
+    return axios.post(`${API_BASE_URL}/wishlistItems`, data);
+  },
+  updateWishlistItem: (id, data) => {
+    if (data.image_id) {
+      data.image = data.image_id;
+      delete data.image_id;
+    }
+    return axios.patch(`${API_BASE_URL}/wishlistItems/${id}`, data);
+  },
   deleteWishlistItem: (id) => axios.delete(`${API_BASE_URL}/wishlistItems/${id}`),
 
   // ==================== PRODUCT DETAILS ====================
@@ -214,6 +263,10 @@ const api = {
     // Frontend expects { success: true, user }
     return { data: { success: true, user: res.data.user || res.data } };
   },
+
+  // ==================== RAZORPAY ====================
+  createRazorpayOrder: (data) => axios.post(`${API_BASE_URL}/orders/create-order`, data),
+  verifyRazorpayPayment: (data) => axios.post(`${API_BASE_URL}/orders/verify-payment`, data),
 };
 
 export default api;

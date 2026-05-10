@@ -32,7 +32,7 @@ const Wishlist = () => {
     const newQuantity = Math.max(1, item.quantity + change)
     
     try {
-      await api.updateWishlistItem(id, { quantity: newQuantity })
+      await api.updateWishlistItem(item._payloadId || id, { quantity: newQuantity })
       setWishlistItems(prevItems =>
         prevItems.map(item =>
           item.id === id
@@ -61,8 +61,9 @@ const Wishlist = () => {
 
   const confirmDelete = async () => {
     if (itemToDelete) {
+      const item = wishlistItems.find(i => i.id === itemToDelete)
       try {
-        await api.deleteWishlistItem(itemToDelete)
+        await api.deleteWishlistItem(item?._payloadId || itemToDelete)
         setWishlistItems(prevItems => prevItems.filter(item => item.id !== itemToDelete))
       } catch (error) {
         console.error('Error deleting item:', error)
@@ -89,7 +90,7 @@ const Wishlist = () => {
       await api.addToCart(cartItemData);
       
       // Wishlist से item remove करें
-      await api.deleteWishlistItem(item.id);
+      await api.deleteWishlistItem(item._payloadId || item.id);
       
       // Local state update करें
       setWishlistItems(prevItems => prevItems.filter(i => i.id !== item.id));

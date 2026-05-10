@@ -31,7 +31,7 @@ const ExploringSection = () => {
         <h2 className="text-center mb-5">Explore Categories</h2>
 
         <Row>
-          {categories.map(category => (
+          {Array.isArray(categories) && categories.map(category => (
             <Col md={4} key={category.id}>
               <div
                 className="category-card"

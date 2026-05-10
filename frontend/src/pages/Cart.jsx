@@ -68,7 +68,7 @@ const Cart = () => {
     const newQuantity = Math.max(1, item.quantity + change)
 
     try {
-      await api.updateCartItem(id, { quantity: newQuantity })
+      await api.updateCartItem(item._payloadId || id, { quantity: newQuantity })
       setCartItems(prevItems =>
         prevItems.map(item =>
           item.id === id
@@ -93,8 +93,9 @@ const Cart = () => {
 
   const confirmDelete = async () => {
     if (itemToDelete) {
+      const item = cartItems.find(i => i.id === itemToDelete)
       try {
-        await api.deleteCartItem(itemToDelete)
+        await api.deleteCartItem(item?._payloadId || itemToDelete)
         setCartItems(prevItems => prevItems.filter(item => item.id !== itemToDelete))
       } catch (error) {
         console.error('Error deleting item:', error)
@@ -113,7 +114,7 @@ const Cart = () => {
   }
 
   // RAZORPAY PAYMENT HANDLER FOR CHECKOUT BUTTON
-  const handleCheckout = () => {
+  const handleCheckout = async () => {
     if (cartItems.length === 0) {
       alert("Your cart is empty. Please add items to cart before checkout.")
       return
@@ -125,51 +126,76 @@ const Cart = () => {
     }
 
     const { total } = calculateTotals()
-    const productNames = cartItems.map(item => item.name).join(', ')
-
-    const options = {
-      key: "rzp_test_1DP5mmOlF5G5ag", // Replace with your Razorpay key
-      amount: Math.round(total * 100), // Amount in paise
-      currency: "INR",
-      name: "Navrang Hall",
-      description: `Cart Checkout - ${cartItems.length} items`,
-      image: "/img/logo.png",
-      handler: function (response) {
-        console.log("Payment Successful:", response)
-        setPaymentStatus('success')
-        setShowStatusModal(true)
-
-        // Clear cart after successful payment
-        setTimeout(() => {
-          setCartItems([])
-        }, 1000)
-      },
-      prefill: {
-        name: "Test Customer",
-        email: "test@example.com",
-        contact: "9999999999"
-      },
-      notes: {
-        cart_items: cartItems.length.toString(),
-        items: productNames,
-        subtotal: `₹${subtotal.toFixed(2)}`,
-        shipping: `₹${shipping.toFixed(2)}`,
-        tax: `₹${tax.toFixed(2)}`,
-        total: `₹${total.toFixed(2)}`
-      },
-      theme: {
-        color: "#FF7E00"
-      },
-      modal: {
-        ondismiss: function () {
-          console.log("Payment modal closed by user")
-          setPaymentStatus('cancelled')
-          setShowStatusModal(true)
-        }
-      }
-    }
 
     try {
+      // 1. Create order on backend
+      const orderResponse = await api.createRazorpayOrder({
+        amount: total,
+        items: cartItems.map(item => ({
+          name: item.name,
+          price: item.price,
+          quantity: item.quantity,
+          size: item.size,
+          color: item.color
+        })),
+        customer: {
+          name: "Test Customer",
+          email: "test@example.com",
+          contact: "9999999999"
+        }
+      });
+
+      const orderData = orderResponse.data;
+
+      const options = {
+        key: "rzp_test_1DP5mmOlF5G5ag",
+        amount: orderData.amount,
+        currency: orderData.currency,
+        name: "Navrang Hall",
+        description: `Cart Checkout - ${cartItems.length} items`,
+        image: "/img/logo.png",
+        order_id: orderData.id,
+        handler: async function (response) {
+          console.log("Payment Success Response:", response)
+          
+          try {
+            // 2. Verify payment on backend
+            await api.verifyRazorpayPayment({
+              razorpay_order_id: response.razorpay_order_id,
+              razorpay_payment_id: response.razorpay_payment_id,
+              razorpay_signature: response.razorpay_signature
+            });
+            
+            setPaymentStatus('success')
+            setShowStatusModal(true)
+
+            // Clear cart after successful payment
+            setTimeout(() => {
+              setCartItems([])
+            }, 1000)
+          } catch (error) {
+            console.error("Payment verification failed:", error);
+            setPaymentStatus('failed')
+            setShowStatusModal(true)
+          }
+        },
+        prefill: {
+          name: "Test Customer",
+          email: "test@example.com",
+          contact: "9999999999"
+        },
+        theme: {
+          color: "#FF7E00"
+        },
+        modal: {
+          ondismiss: function () {
+            console.log("Payment modal closed by user")
+            setPaymentStatus('cancelled')
+            setShowStatusModal(true)
+          }
+        }
+      }
+
       const rzp = new window.Razorpay(options)
       rzp.open()
 

@@ -12,7 +12,20 @@ export const ProductDetails: CollectionConfig = {
       { name: 'thumb', type: 'upload', relationTo: 'media' },
       { name: 'large', type: 'upload', relationTo: 'media' },
     ] },
-    { name: 'sizes', type: 'json' },
+    { 
+      name: 'sizes', 
+      type: 'select', 
+      hasMany: true, 
+      options: [
+        { label: 'XS', value: 'XS' },
+        { label: 'S', value: 'S' },
+        { label: 'M', value: 'M' },
+        { label: 'L', value: 'L' },
+        { label: 'XL', value: 'XL' },
+        { label: 'XXL', value: 'XXL' },
+        { label: 'One Size', value: 'One Size' }
+      ]
+    },
     { name: 'description', type: 'text' },
     { name: 'reviews', type: 'array', fields: [
       { name: 'name', type: 'text' },

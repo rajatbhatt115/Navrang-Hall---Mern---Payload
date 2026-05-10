@@ -17,9 +17,10 @@ import { Team } from './collections/Team'
 import { CartItems } from './collections/CartItems'
 import { WishlistItems } from './collections/WishlistItems'
 import { ProductDetails } from './collections/ProductDetails'
-import { InnerBlog } from './collections/InnerBlog'
+import { Orders } from './collections/Orders'
+import { Blogs } from './collections/Blogs'
+import { BlogSettings } from './globals/blogSettings'
 import { TopRatingProducts } from './globals/TopRatingProducts'
-import { Blogs } from './globals/Blogs'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -32,8 +33,8 @@ export default buildConfig({
     },
   },
   cors: '*', // Allow all origins for the frontend
-  collections: [Users, Media, HomeBanners, DiscoverProducts, AboutContent, Categories, Testimonials, Products, Team, CartItems, WishlistItems, ProductDetails, InnerBlog],
-  globals: [TopRatingProducts, Blogs],
+  collections: [Users, Media, HomeBanners, DiscoverProducts, AboutContent, Categories, Testimonials, Products, Team, CartItems, WishlistItems, ProductDetails, Blogs, Orders],
+  globals: [TopRatingProducts, BlogSettings],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

@@ -18,7 +18,7 @@ body {
 
 /* Account, Wishlist और Cart pages के footer links के लिए */
 footer a[href*="account"],
-footer a[href*="wishlist"], 
+footer a[href*="wishlist"],
 footer a[href*="cart"],
 footer .footer-link-account,
 footer .footer-link-wishlist,
@@ -26,7 +26,7 @@ footer .footer-link-cart,
 footer .nav-link[href="/account"],
 footer .nav-link[href="/wishlist"],
 footer .nav-link[href="/cart"] {
-  color: white !important;
+    color: white !important;
 }
 
 /* Hover पर भी white ही रखें */
@@ -39,8 +39,8 @@ footer .footer-link-cart:hover,
 footer .nav-link[href="/account"]:hover,
 footer .nav-link[href="/wishlist"]:hover,
 footer .nav-link[href="/cart"]:hover {
-  color: white !important;
-  text-decoration: none !important;
+    color: white !important;
+    text-decoration: none !important;
 }
 
 /* =============== COMMON STYLES =============== */
@@ -652,130 +652,130 @@ footer a {
 /* =============== NEWSLETTER SECTION STYLES =============== */
 
 .newsletter-section {
-  padding: 60px 0;
-  background-color: #f8f9fa;
-  width: 100%;
+    padding: 60px 0;
+    background-color: #f8f9fa;
+    width: 100%;
 }
 
 .newsletter-heading {
-  text-align: center;
-  margin-bottom: 30px;
-  font-size: 2rem;
-  font-weight: 600;
-  color: var(--dark-text);
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--dark-text);
 }
 
 .newsletter-form-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 .newsletter-form {
-  display: flex;
-  max-width: 600px;
-  width: 100%;
-  gap: 15px;
-  margin: 0 auto;
+    display: flex;
+    max-width: 600px;
+    width: 100%;
+    gap: 15px;
+    margin: 0 auto;
 }
 
 .newsletter-input {
-  flex: 1;
-  padding: 12px 20px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 16px;
-  transition: border-color 0.3s ease;
-  font-family: 'Outfit', sans-serif;
-  border-radius: 10px;
+    flex: 1;
+    padding: 12px 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    font-family: 'Outfit', sans-serif;
+    border-radius: 10px;
 }
 
 .newsletter-input:focus {
-  outline: none;
-  border-color: #FF7E00;
-  box-shadow: 0 0 0 2px rgba(255, 126, 0, 0.1);
+    outline: none;
+    border-color: #FF7E00;
+    box-shadow: 0 0 0 2px rgba(255, 126, 0, 0.1);
 }
 
 .newsletter-btn {
-  padding: 12px 30px;
-  background-color: #FF7E00;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: all 0.3s ease;
-  font-family: 'Outfit', sans-serif;
-  border-radius: 999px;
+    padding: 12px 30px;
+    background-color: #FF7E00;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    font-family: 'Outfit', sans-serif;
+    border-radius: 999px;
 }
 
 .newsletter-btn:hover {
-  background-color: #E38B50;
-  transform: translateY(-2px);
+    background-color: #E38B50;
+    transform: translateY(-2px);
 }
 
 /* =============== NEWSLETTER MOBILE RESPONSIVE =============== */
 
 @media (max-width: 768px) {
-  .newsletter-section {
-    padding: 40px 0;
-  }
-  
-  .newsletter-heading {
-    font-size: 1.75rem;
-    margin-bottom: 20px;
-  }
-  
-  .newsletter-form {
-    flex-direction: column;
-    gap: 12px;
-    padding: 0 15px;
-  }
-  
-  .newsletter-input {
-    width: 100%;
-    padding: 14px 20px;
-    font-size: 16px;
-    border-radius: 10px;
-  }
-  
-  .newsletter-btn {
-    width: 100%;
-    padding: 14px 30px;
-    font-size: 16px;
-    border-radius: 999px;
-  }
+    .newsletter-section {
+        padding: 40px 0;
+    }
+
+    .newsletter-heading {
+        font-size: 1.75rem;
+        margin-bottom: 20px;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+        gap: 12px;
+        padding: 0 15px;
+    }
+
+    .newsletter-input {
+        width: 100%;
+        padding: 14px 20px;
+        font-size: 16px;
+        border-radius: 10px;
+    }
+
+    .newsletter-btn {
+        width: 100%;
+        padding: 14px 30px;
+        font-size: 16px;
+        border-radius: 999px;
+    }
 }
 
 @media (max-width: 576px) {
-  .newsletter-section {
-    padding: 30px 0;
-  }
-  
-  .newsletter-heading {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-    padding: 0 15px;
-  }
-  
-  .newsletter-form {
-    gap: 10px;
-  }
-  
-  .newsletter-input {
-    padding: 12px 16px;
-    font-size: 15px;
-    border-radius: 10px;
-  }
-  
-  .newsletter-btn {
-    padding: 12px 24px;
-    font-size: 15px;
-    border-radius: 999px;
-  }
+    .newsletter-section {
+        padding: 30px 0;
+    }
+
+    .newsletter-heading {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        padding: 0 15px;
+    }
+
+    .newsletter-form {
+        gap: 10px;
+    }
+
+    .newsletter-input {
+        padding: 12px 16px;
+        font-size: 15px;
+        border-radius: 10px;
+    }
+
+    .newsletter-btn {
+        padding: 12px 24px;
+        font-size: 15px;
+        border-radius: 999px;
+    }
 }
 
 /* =============== ABOUT PAGE STYLES =============== */
@@ -1199,10 +1199,9 @@ textarea.form-control {
 }
 
 
-    .bg-white
-    {
-            padding: 10px 0 !important;
-    }
+.bg-white {
+    padding: 10px 0 !important;
+}
 
 
 
@@ -1330,14 +1329,12 @@ textarea.form-control {
         text-align: center !important;
     }
 
-    .top-bar
-    {
+    .top-bar {
         padding: 0 !important;
     }
 
-    .bg-white
-    {
-            padding: 0 !important;
+    .bg-white {
+        padding: 0 !important;
     }
 }
 
@@ -1419,10 +1416,9 @@ textarea.form-control {
     gap: 12px;
 }
 
-.bg-white
-    {
-            padding: 0 !important;
-    }
+.bg-white {
+    padding: 0 !important;
+}
 
 .author-avatar {
     width: 40px;
@@ -1448,10 +1444,9 @@ textarea.form-control {
     color: #999;
 }
 
-.top-bar
-    {
-        padding: 10px 0;
-    }
+.top-bar {
+    padding: 10px 0;
+}
 
 /* Small Blog Cards */
 .small-blog-card {
@@ -3526,8 +3521,7 @@ textarea.form-control {
     }
 }
 
-.heart-icon:hover
-{
+.heart-icon:hover {
     color: #FF7E00;
 }
 
@@ -3846,7 +3840,7 @@ textarea.form-control {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.7);
+    background: rgba(0, 0, 0, 0.7);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -3860,7 +3854,7 @@ textarea.form-control {
     max-width: 400px;
     padding: 30px;
     text-align: center;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
 .status-icon {
@@ -3956,7 +3950,7 @@ textarea.form-control {
     .cart-section {
         padding: 40px 0;
     }
-    
+
     .order-summary {
         margin-top: 30px;
         position: static;
@@ -3970,32 +3964,32 @@ textarea.form-control {
         gap: 15px;
         padding: 15px;
     }
-    
+
     .cart-item-image {
         width: 100%;
         height: 200px;
     }
-    
+
     .cart-item-details {
         width: 100%;
     }
-    
+
     .cart-item-actions {
         width: 100%;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
     }
-    
+
     .quantity-controls {
         order: 1;
     }
-    
+
     .cart-item-price {
         order: 2;
         font-size: 18px;
     }
-    
+
     .cart-item-delete-btn {
         top: 24px;
         right: 24px;
@@ -4003,46 +3997,46 @@ textarea.form-control {
         height: 30px;
         font-size: 14px;
     }
-    
+
     .empty-cart {
         padding: 50px 15px;
     }
-    
+
     .empty-cart-icon {
         font-size: 60px;
     }
-    
+
     .empty-cart h3 {
         font-size: 24px;
     }
-    
+
     .btn-shop-now {
         padding: 10px 30px;
         font-size: 14px;
     }
-    
+
     .order-summary {
         padding: 20px;
     }
-    
+
     .order-summary h4 {
         font-size: 20px;
         margin-bottom: 20px;
     }
-    
+
     .summary-total {
         margin-top: 15px;
         padding-top: 15px;
     }
-    
+
     .total-label {
         font-size: 16px;
     }
-    
+
     .total-value {
         font-size: 20px;
     }
-    
+
     .checkout-btn {
         padding: 12px;
         font-size: 15px;
@@ -4053,83 +4047,83 @@ textarea.form-control {
     .cart-section {
         padding: 30px 0;
     }
-    
+
     .cart-item {
         padding: 12px;
     }
-    
+
     .cart-item-image {
         height: 180px;
     }
-    
+
     .cart-item-details h5 {
         font-size: 18px;
     }
-    
+
     .cart-item-info {
         font-size: 13px;
     }
-    
+
     .stock-status {
         font-size: 12px;
         padding: 4px 10px;
     }
-    
+
     .quantity-btn {
         width: 30px;
         height: 30px;
         font-size: 14px;
     }
-    
+
     .quantity-value {
         font-size: 14px;
     }
-    
+
     .cart-item-price {
         font-size: 16px;
     }
-    
+
     .empty-cart {
         padding: 40px 10px;
     }
-    
+
     .empty-cart-icon {
         font-size: 50px;
     }
-    
+
     .empty-cart h3 {
         font-size: 20px;
     }
-    
+
     .empty-cart p {
         font-size: 14px;
         padding: 0 10px;
     }
-    
+
     .btn-shop-now {
         padding: 10px 25px;
         font-size: 13px;
     }
-    
+
     .status-modal-content {
         padding: 20px;
         margin: 10px;
     }
-    
+
     .status-icon {
         width: 60px;
         height: 60px;
         font-size: 30px;
     }
-    
+
     .status-modal-content h3 {
         font-size: 20px;
     }
-    
+
     .status-modal-content p {
         font-size: 14px;
     }
-    
+
     .status-btn {
         padding: 10px 20px;
         font-size: 14px;
@@ -4169,6 +4163,7 @@ textarea.form-control {
         transform: translateY(-50px);
         opacity: 0;
     }
+
     to {
         transform: translateY(0);
         opacity: 1;
@@ -4235,26 +4230,26 @@ textarea.form-control {
     .modal-content-custom {
         padding: 30px 20px;
     }
-    
+
     .modal-icon {
         font-size: 50px;
         margin-bottom: 15px;
     }
-    
+
     .modal-content-custom h4 {
         font-size: 20px;
     }
-    
+
     .modal-content-custom p {
         font-size: 14px;
         margin-bottom: 20px;
     }
-    
+
     .modal-buttons {
         flex-direction: column;
         gap: 10px;
     }
-    
+
     .modal-btn {
         padding: 10px 20px;
         font-size: 14px;
@@ -4263,125 +4258,129 @@ textarea.form-control {
 }
 
 @media (max-width: 768px) {
-  .exploring-section .row {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-  }
-  
-  .exploring-section .col-md-4 {
-    width: 100%;
-    flex: 0 0 auto;
-  }
+    .exploring-section .row {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .exploring-section .col-md-4 {
+        width: 100%;
+        flex: 0 0 auto;
+    }
 }
 
 /* ONLY for mobile - desktop won't be touched */
 @media screen and (max-width: 767px) {
-  .reviews-container {
-    grid-template-columns: 1fr !important;
-  }
-  
-  .review-card {
-    padding: 20px !important;
-  }
-  
-  .stars-input {
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  
-  .star-icon svg {
-    width: 24px !important;
-    height: 24px !important;
-  }
+    .reviews-container {
+        grid-template-columns: 1fr !important;
+    }
+
+    .review-card {
+        padding: 20px !important;
+    }
+
+    .stars-input {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .star-icon svg {
+        width: 24px !important;
+        height: 24px !important;
+    }
 }
 
 @media screen and (max-width: 767px) {
 
-.form-cl
-{
-    padding: 60px 20px !important;
-}
+    .form-cl {
+        padding: 60px 20px !important;
+    }
 
-.img-review
-{
-    margin-top: 25px !important;
-}
+    .img-review {
+        margin-top: 25px !important;
+    }
 }
 
 
 /* =============== SKELETON LOADING STYLES =============== */
 .hero-section-skeleton {
-  background: linear-gradient(135deg, var(--light-orange) 0%, #FFE8CC 100%);
-  padding: 80px 0;
-  min-height: 500px; /* Fixed height to prevent layout shift */
+    background: linear-gradient(135deg, var(--light-orange) 0%, #FFE8CC 100%);
+    padding: 80px 0;
+    min-height: 500px;
+    /* Fixed height to prevent layout shift */
 }
 
 .skeleton {
-  background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
-  background-size: 200% 100%;
-  animation: loading 1.5s infinite;
-  border-radius: 4px;
+    background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+    border-radius: 4px;
 }
 
 @keyframes loading {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
 }
 
 .skeleton-text-small {
-  width: 200px;
-  height: 20px;
-  margin-bottom: 15px;
+    width: 200px;
+    height: 20px;
+    margin-bottom: 15px;
 }
 
 .skeleton-title {
-  width: 300px;
-  height: 48px;
-  margin-bottom: 20px;
+    width: 300px;
+    height: 48px;
+    margin-bottom: 20px;
 }
 
 .skeleton-text {
-  width: 100%;
-  max-width: 400px;
-  height: 16px;
-  margin-bottom: 12px;
+    width: 100%;
+    max-width: 400px;
+    height: 16px;
+    margin-bottom: 12px;
 }
 
 .skeleton-button {
-  width: 150px;
-  height: 45px;
-  border-radius: 25px;
-  margin-top: 20px;
+    width: 150px;
+    height: 45px;
+    border-radius: 25px;
+    margin-top: 20px;
 }
 
 .skeleton-image {
-  width: 400px;
-  height: 400px;
-  border-radius: 10px;
+    width: 400px;
+    height: 400px;
+    border-radius: 10px;
 }
 
 /* Responsive skeleton */
 @media (max-width: 992px) {
-  .skeleton-image {
-    width: 100%;
-    height: 350px;
-    margin-top: 30px;
-  }
+    .skeleton-image {
+        width: 100%;
+        height: 350px;
+        margin-top: 30px;
+    }
 }
 
 @media (max-width: 768px) {
-  .hero-section-skeleton {
-    padding: 50px 0;
-    min-height: 700px;
-  }
-  
-  .skeleton-title {
-    width: 250px;
-    height: 40px;
-  }
-  
-  .skeleton-image {
-    height: 300px;
-  }
+    .hero-section-skeleton {
+        padding: 50px 0;
+        min-height: 700px;
+    }
+
+    .skeleton-title {
+        width: 250px;
+        height: 40px;
+    }
+
+    .skeleton-image {
+        height: 300px;
+    }
 }

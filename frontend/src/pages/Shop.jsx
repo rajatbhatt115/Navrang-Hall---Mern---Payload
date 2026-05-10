@@ -174,6 +174,7 @@ const Shop = () => {
         const wishlistItem = {
           name: product.title,
           image: product.image,
+          image_id: product.image_id,
           color: getRandomColor(),
           size: product.sizes && product.sizes.length > 0 ? product.sizes[0] : 'M',
           unitPrice: product.price,
@@ -243,6 +244,7 @@ const Shop = () => {
         const cartItem = {
           name: product.title,
           image: product.image,
+          image_id: product.image_id,
           color: getRandomColor(),
           size: product.sizes && product.sizes.length > 0 ? product.sizes[0] : 'M',
           price: product.price,

@@ -163,6 +163,7 @@ const InnerProduct = () => {
         const wishlistItem = {
           name: product.name,
           image: product.images && product.images.length > 0 ? product.images[0].thumb : '/img/default.jpg',
+          image_id: product.images && product.images.length > 0 ? product.images[0].thumb_id : null,
           color: getRandomColor(),
           size: selectedSize,
           unitPrice: product.price,
@@ -243,6 +244,7 @@ const InnerProduct = () => {
         const cartItem = {
           name: product.name,
           image: product.images && product.images.length > 0 ? product.images[0].thumb : '/img/default.jpg',
+          image_id: product.images && product.images.length > 0 ? product.images[0].thumb_id : null,
           color: getRandomColor(),
           size: selectedSize,
           price: product.price,
@@ -281,7 +283,7 @@ const InnerProduct = () => {
   };
 
   // RAZORPAY PAYMENT HANDLER FOR BUY NOW BUTTON
-  const handleBuyNow = () => {
+  const handleBuyNow = async () => {
     if (!product) return;
 
     if (!window.Razorpay) {
@@ -291,42 +293,70 @@ const InnerProduct = () => {
 
     const totalPrice = product.price * quantity;
 
-    const options = {
-      key: "rzp_test_1DP5mmOlF5G5ag",
-      amount: totalPrice * 100,
-      currency: "INR",
-      name: "Navrang Hall",
-      description: `Product: ${product.name} - Size: ${selectedSize}`,
-      image: "/img/logo.png",
-      handler: function (response) {
-        console.log("Payment Successful:", response);
-        setPaymentStatus('success');
-        setShowStatusModal(true);
-      },
-      prefill: {
-        name: "Test Customer",
-        email: "test@example.com",
-        contact: "9999999999"
-      },
-      notes: {
-        product: product.name,
-        size: selectedSize,
-        quantity: quantity,
-        totalAmount: totalPrice
-      },
-      theme: {
-        color: "#FF7E00"
-      },
-      modal: {
-        ondismiss: function () {
-          console.log("Payment modal closed by user");
-          setPaymentStatus('cancelled');
-          setShowStatusModal(true);
-        }
-      }
-    };
-
     try {
+      // 1. Create order on backend
+      const orderResponse = await api.createRazorpayOrder({
+        amount: totalPrice,
+        items: [{
+          name: product.name,
+          price: product.price,
+          quantity: quantity,
+          size: selectedSize,
+          color: getRandomColor()
+        }],
+        customer: {
+          name: "Test Customer",
+          email: "test@example.com",
+          contact: "9999999999"
+        }
+      });
+
+      const orderData = orderResponse.data;
+
+      const options = {
+        key: "rzp_test_1DP5mmOlF5G5ag",
+        amount: orderData.amount,
+        currency: orderData.currency,
+        name: "Navrang Hall",
+        description: `Product: ${product.name}`,
+        image: "/img/logo.png",
+        order_id: orderData.id,
+        handler: async function (response) {
+          console.log("Payment Success Response:", response);
+          
+          try {
+            // 2. Verify payment on backend
+            await api.verifyRazorpayPayment({
+              razorpay_order_id: response.razorpay_order_id,
+              razorpay_payment_id: response.razorpay_payment_id,
+              razorpay_signature: response.razorpay_signature
+            });
+            
+            setPaymentStatus('success');
+            setShowStatusModal(true);
+          } catch (error) {
+            console.error("Payment verification failed:", error);
+            setPaymentStatus('failed');
+            setShowStatusModal(true);
+          }
+        },
+        prefill: {
+          name: "Test Customer",
+          email: "test@example.com",
+          contact: "9999999999"
+        },
+        theme: {
+          color: "#FF7E00"
+        },
+        modal: {
+          ondismiss: function () {
+            console.log("Payment modal closed by user");
+            setPaymentStatus('cancelled');
+            setShowStatusModal(true);
+          }
+        }
+      };
+
       const rzp = new window.Razorpay(options);
       rzp.open();
 

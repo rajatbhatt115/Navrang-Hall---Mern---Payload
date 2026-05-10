@@ -40,7 +40,7 @@ const RatingSection = () => {
   }, [activeCategory])
 
   // RAZORPAY PAYMENT HANDLER FOR PRODUCT CARDS
-  const handleBuyNow = (product) => {
+  const handleBuyNow = async (product) => {
     if (!window.Razorpay) {
       alert("Razorpay SDK not loaded. Please refresh the page.");
       return;
@@ -48,43 +48,75 @@ const RatingSection = () => {
 
     setSelectedProduct(product);
 
-    const totalPrice = parseInt(product.price.replace('₹', '').replace(',', '')) || 1000;
-
-    const options = {
-      key: "rzp_test_1DP5mmOlF5G5ag", // Replace with your Razorpay key
-      amount: totalPrice * 100, // Amount in paise
-      currency: "INR",
-      name: "Navrang Hall",
-      description: `Product: ${product.title}`,
-      image: "/img/logo.png",
-      handler: function (response) {
-        console.log("Payment Successful:", response);
-        setPaymentStatus('success');
-        setShowStatusModal(true);
-      },
-      prefill: {
-        name: "Test Customer",
-        email: "test@example.com",
-        contact: "9999999999"
-      },
-      notes: {
-        product: product.title,
-        category: activeCategory,
-        amount: totalPrice
-      },
-      theme: {
-        color: "#FF7E00"
-      },
-      modal: {
-        ondismiss: function () {
-          console.log("Payment modal closed by user");
-          setPaymentStatus('cancelled');
-          setShowStatusModal(true);
-        }
-      }
-    };
+    const priceValue = typeof product.price === 'string' 
+      ? parseInt(product.price.replace('₹', '').replace(',', '')) 
+      : product.price;
+    const totalPrice = priceValue || 1000;
 
     try {
+      // 1. Create order on backend
+      const orderResponse = await api.createRazorpayOrder({
+        amount: totalPrice,
+        items: [{
+          name: product.title,
+          price: totalPrice,
+          quantity: 1,
+          size: 'M',
+          color: 'Default'
+        }],
+        customer: {
+          name: "Test Customer",
+          email: "test@example.com",
+          contact: "9999999999"
+        }
+      });
+
+      const orderData = orderResponse.data;
+
+      const options = {
+        key: "rzp_test_1DP5mmOlF5G5ag",
+        amount: orderData.amount,
+        currency: orderData.currency,
+        name: "Navrang Hall",
+        description: `Product: ${product.title}`,
+        image: "/img/logo.png",
+        order_id: orderData.id,
+        handler: async function (response) {
+          console.log("Payment Success Response:", response);
+          
+          try {
+            // 2. Verify payment on backend
+            await api.verifyRazorpayPayment({
+              razorpay_order_id: response.razorpay_order_id,
+              razorpay_payment_id: response.razorpay_payment_id,
+              razorpay_signature: response.razorpay_signature
+            });
+            
+            setPaymentStatus('success');
+            setShowStatusModal(true);
+          } catch (error) {
+            console.error("Payment verification failed:", error);
+            setPaymentStatus('failed');
+            setShowStatusModal(true);
+          }
+        },
+        prefill: {
+          name: "Test Customer",
+          email: "test@example.com",
+          contact: "9999999999"
+        },
+        theme: {
+          color: "#FF7E00"
+        },
+        modal: {
+          ondismiss: function () {
+            console.log("Payment modal closed by user");
+            setPaymentStatus('cancelled');
+            setShowStatusModal(true);
+          }
+        }
+      };
+
       const rzp = new window.Razorpay(options);
       rzp.open();
 
@@ -134,8 +166,8 @@ const RatingSection = () => {
 
         {/* Products based on active category */}
         {products.length > 0 && (
-          <Row className="product-category active">
-            {products.map(product => (
+          <Row className="justify-content-center">
+            {Array.isArray(products) && products.map(product => (
               <Col md={4} key={product.id}>
                 <div className="rating-card">
                   <div className="rating-image rating-image-kids1 rating-image-women1 rating-image-jewellery1" style={{ backgroundImage: `url(${product.image})` }}></div>

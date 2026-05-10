@@ -31,7 +31,7 @@ const DiscoverSection = () => {
       <Container>
         <h2><span>Discover more.</span> <strong>Good things are waiting for you</strong></h2>
         <Row>
-          {products.map((product, index) => (
+          {Array.isArray(products) && products.map((product, index) => (
             <Col md={3} key={product.id}>
               <div className="product-card" style={{ backgroundColor: product.bgColor, cursor: 'default' }}>
                 <span className="badge-new">{product.badge}</span>

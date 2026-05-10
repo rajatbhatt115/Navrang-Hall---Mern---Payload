@@ -18,9 +18,9 @@ const frontendPublicDir = path.join(dirname, '..', 'frontend', 'public')
 const collections = [
   'homeBanners', 'discoverProducts', 'aboutContent', 'categories', 
   'testimonials', 'products', 'team', 'cartItems', 'wishlistItems', 
-  'productDetails', 'innerBlog'
+  'productDetails', 'blogs', 'orders'
 ]
-const globals = ['topRatingProducts', 'blogs']
+const globals = ['topRatingProducts', 'blog-settings']
 
 // Helper to upload a file to Payload Media and return its ID
 async function uploadMedia(payload: any, imagePath: string) {
@@ -122,17 +122,17 @@ async function run() {
 
   // Migrate Collections
   for (const col of collections) {
-    if (!db[col] || !Array.isArray(db[col])) continue
+    const dbKey = col === 'blogs' ? 'innerBlog' : col;
+    if (!db[dbKey] || !Array.isArray(db[dbKey])) continue
     
     console.log(`Migrating collection: ${col}`)
-    for (const item of db[col]) {
+    for (const item of db[dbKey]) {
       try {
         const processedItem = await processDocument(payload, item);
         
-        // @ts-ignore
         await payload.create({
-          collection: col,
-          data: processedItem,
+          collection: col as any,
+          data: processedItem as any,
         })
       } catch (err) {
         console.error(`Error inserting into ${col}:`, err)
@@ -142,15 +142,15 @@ async function run() {
 
   // Migrate Globals
   for (const glob of globals) {
-    if (!db[glob]) continue
+    const dbKey = glob === 'blog-settings' ? 'blogs' : glob;
+    if (!db[dbKey]) continue
     
     console.log(`Migrating global: ${glob}`)
     try {
-      const processedItem = await processDocument(payload, db[glob]);
-      // @ts-ignore
+      const processedItem = await processDocument(payload, db[dbKey]);
       await payload.updateGlobal({
-        slug: glob,
-        data: processedItem,
+        slug: glob as any,
+        data: processedItem as any,
       })
     } catch (err) {
       console.error(`Error updating global ${glob}:`, err)
