@@ -111,7 +111,8 @@ const InnerBlog = () => {
       }
     } catch (error) {
       console.error('Error posting comment:', error);
-      alert('Failed to post comment. Please try again.');
+      const errorMsg = error.response?.data?.errors?.[0]?.message || error.message || 'Unknown error';
+      alert(`Failed to post comment: ${errorMsg}`);
     } finally {
       setLoading(false);
     }
@@ -289,17 +290,17 @@ const InnerBlog = () => {
                     {comments.map(comment => (
                       <div className="comment-item" key={comment.id}>
                         <div className="comment-header">
-                          <div
-                            className="comment-avatar"
-                            style={{
-                              backgroundImage: `url(${comment.avatar})`,
-                              width: '50px',
-                              height: '50px',
-                              borderRadius: '50%',
-                              backgroundSize: 'cover'
-                            }}
-                            loading="lazy"
-                          ></div>
+                            <div
+                              className="comment-avatar"
+                              style={{
+                                backgroundImage: `url(${comment.avatar || `https://i.pravatar.cc/150?u=${comment.id}`})`,
+                                width: '50px',
+                                height: '50px',
+                                borderRadius: '50%',
+                                backgroundSize: 'cover'
+                              }}
+                              loading="lazy"
+                            ></div>
                           <div className="comment-author">
                             <h5>{comment.name}</h5>
                             <span className="comment-date">{comment.date}</span>

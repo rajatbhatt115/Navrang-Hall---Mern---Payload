@@ -154,19 +154,28 @@ const api = {
     
     const existingComments = blog.comments || [];
     const newCommentId = existingComments.length > 0 ? Math.max(...existingComments.map(c => c.id || 0)) + 1 : 1;
-    
+
+    // Clean up existing comments to send ONLY schema-defined fields back to Payload
+    const cleanedComments = existingComments.map(c => ({
+      oldId: c.oldId || c.id, // Use oldId or map current id back to oldId
+      name: c.name,
+      date: c.date,
+      text: c.text,
+      avatar: c.avatar_id || (typeof c.avatar === 'string' ? null : c.avatar)
+    }));
+
     const commentToAdd = {
-      id: newCommentId,
+      oldId: newCommentId,
       name: commentData.name,
       date: new Date().toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' }),
       text: commentData.text,
-      avatar: commentData.avatar_id || commentData.avatar || `https://i.pravatar.cc/150?img=${Math.floor(Math.random() * 70) + 1}`
+      avatar: commentData.avatar_id || null
     };
     
-    existingComments.push(commentToAdd);
+    cleanedComments.push(commentToAdd);
     
     const targetId = blog._payloadId || blog.id;
-    await axios.patch(`${API_BASE_URL}/blogs/${targetId}`, { comments: existingComments });
+    await axios.patch(`${API_BASE_URL}/blogs/${targetId}`, { comments: cleanedComments });
     return { data: commentToAdd };
   },
 
@@ -239,21 +248,30 @@ const api = {
     
     const existingReviews = product.reviews || [];
     const newReviewId = existingReviews.length > 0 ? Math.max(...existingReviews.map(r => r.id || 0)) + 1 : 1;
-    
+
+    // Clean up existing reviews to send ONLY schema-defined fields back to Payload
+    const cleanedReviews = existingReviews.map(r => ({
+      oldId: r.oldId || r.id, // Use oldId or map current id back to oldId
+      name: r.name,
+      rating: r.rating,
+      text: r.text || r.comment,
+      avatar: r.avatar_id || (typeof r.avatar === 'string' ? null : r.avatar)
+    }));
+
     const reviewToAdd = {
-      id: newReviewId,
+      oldId: newReviewId,
       name: reviewData.name,
       rating: reviewData.rating,
       text: reviewData.comment,
-      avatar: reviewData.avatar
+      avatar: reviewData.avatar_id || null
     };
     
-    existingReviews.push(reviewToAdd);
-    const averageRating = existingReviews.reduce((sum, r) => sum + r.rating, 0) / existingReviews.length;
+    cleanedReviews.push(reviewToAdd);
+    const averageRating = cleanedReviews.reduce((sum, r) => sum + r.rating, 0) / cleanedReviews.length;
     
     const targetId = product._payloadId || product.id;
     await axios.patch(`${API_BASE_URL}/productDetails/${targetId}`, {
-      reviews: existingReviews,
+      reviews: cleanedReviews,
       rating: parseFloat(averageRating.toFixed(1))
     });
     
@@ -279,7 +297,7 @@ const api = {
   uploadMedia: async (file) => {
     const formData = new FormData();
     formData.append('file', file);
-    formData.append('alt', file.name);
+    formData.append('alt', file.name || 'User Upload');
     const res = await axios.post(`${API_BASE_URL}/media`, formData, {
       headers: {
         'Content-Type': 'multipart/form-data'

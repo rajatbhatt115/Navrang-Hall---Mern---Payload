@@ -56,6 +56,10 @@ export const Blogs: CollectionConfig = {
       type: 'array',
       fields: [
         {
+          name: 'oldId',
+          type: 'number',
+        },
+        {
           name: 'name',
           type: 'text',
         },

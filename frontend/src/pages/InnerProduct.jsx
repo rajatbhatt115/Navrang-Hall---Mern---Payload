@@ -18,7 +18,8 @@ const InnerProduct = () => {
     firstName: '',
     lastName: '',
     rating: 0,
-    comment: ''
+    comment: '',
+    photo: null
   });
   const [reviews, setReviews] = useState([]);
   const [currentReviewSlide, setCurrentReviewSlide] = useState(0);
@@ -276,10 +277,17 @@ const InnerProduct = () => {
   };
 
   const handleReviewChange = (e) => {
-    setReviewForm({
-      ...reviewForm,
-      [e.target.name]: e.target.value
-    });
+    if (e.target.name === 'photo') {
+      setReviewForm({
+        ...reviewForm,
+        photo: e.target.files[0]
+      });
+    } else {
+      setReviewForm({
+        ...reviewForm,
+        [e.target.name]: e.target.value
+      });
+    }
   };
 
   // RAZORPAY PAYMENT HANDLER FOR BUY NOW BUTTON
@@ -374,66 +382,70 @@ const InnerProduct = () => {
 
   // UPDATED: Save review to productDetails array (without date)
   const handleReviewSubmit = async (e) => {
-    e.preventDefault();
+    if (e && e.preventDefault) e.preventDefault();
+    
     if (!reviewForm.firstName || !reviewForm.lastName || !reviewForm.comment || reviewForm.rating === 0) {
       alert('Please fill in all fields and select a rating.');
       return;
     }
 
     try {
-      // Prepare review data WITHOUT date
+      let photoId = null;
+      let photoUrl = null;
+
+      // 1. Upload photo if selected
+      if (reviewForm.photo) {
+        const uploadRes = await api.uploadMedia(reviewForm.photo);
+        photoId = uploadRes.data.id;
+        photoUrl = uploadRes.data.url;
+      }
+
+      // 2. Prepare review data
       const reviewData = {
         productId: product.id,
         name: `${reviewForm.firstName} ${reviewForm.lastName}`,
         rating: reviewForm.rating,
         comment: reviewForm.comment,
-        avatar: getRandomAvatar()
-        // NO date field
+        avatar_id: photoId,
+        avatar: photoUrl // Temporary URL for instant display
       };
 
-      // Save to database
+      // 3. Save to database
       const response = await api.addProductReview(reviewData);
       const newReview = response.data;
 
-      // Format for UI WITHOUT date
+      // 4. Update local state for instant display
       const formattedReview = {
         id: newReview.id,
-        name: newReview.name,
-        rating: newReview.rating,
-        text: newReview.comment || newReview.text,
-        avatar: newReview.avatar
-        // NO date field
+        name: reviewData.name,
+        rating: reviewData.rating,
+        text: reviewData.comment,
+        avatar: photoUrl || `https://i.pravatar.cc/150?u=${newReview.id}`
       };
-
       // Add new review to the beginning
       setReviews(prev => [formattedReview, ...prev]);
 
-      // Update product rating
-      setProduct(prev => {
-        const allReviews = [...(prev.reviews || []), formattedReview];
-        const newRating = allReviews.reduce((sum, r) => sum + r.rating, 0) / allReviews.length;
+      // Show success message
+      alert('✓ Your review has been posted successfully!');
 
-        return {
-          ...prev,
-          rating: parseFloat(newRating.toFixed(1)),
-          reviews: allReviews
-        };
-      });
-
-      // Reset form
+      // 5. Reset form
       setReviewForm({
         firstName: '',
         lastName: '',
         rating: 0,
-        comment: ''
+        comment: '',
+        photo: null
       });
       setUserRating(0);
-
-      alert('Review submitted successfully! It has been saved to the database.');
+      
+      // Reset file input
+      const fileInput = document.getElementById('photo');
+      if (fileInput) fileInput.value = '';
 
     } catch (error) {
-      console.error('Error submitting review:', error);
-      alert('Failed to submit review. Please try again.');
+      console.error('Error posting review:', error);
+      const errorMsg = error.response?.data?.errors?.[0]?.message || error.message || 'Unknown error';
+      alert(`Failed to post review: ${errorMsg}`);
     }
   };
 
@@ -880,7 +892,7 @@ const InnerProduct = () => {
                                 backgroundSize: 'cover',
                                 backgroundPosition: 'center',
                                 flexShrink: 0,
-                                backgroundImage: `url(${review.avatar})`,
+                                backgroundImage: `url(${review.avatar || `https://i.pravatar.cc/150?u=${review.id}`})`,
                                 border: '2px solid #FF7E00'
                               }}
                               loading="lazy"
@@ -1016,6 +1028,26 @@ const InnerProduct = () => {
                               />
                             </Col>
                           </Row>
+                          
+                          <div className="mb-3">
+                            <Form.Group controlId="photo">
+                              <Form.Label style={{ fontWeight: '600', color: '#2D2D2D', marginBottom: '8px', display: 'block' }}>Upload Photo (Optional)</Form.Label>
+                              <Form.Control
+                                type="file"
+                                name="photo"
+                                onChange={handleReviewChange}
+                                accept="image/*"
+                                style={{
+                                  border: '2px solid #e0e0e0',
+                                  borderRadius: '12px',
+                                  padding: '12px 15px',
+                                  fontSize: '16px',
+                                  transition: 'all 0.3s',
+                                  background: 'white'
+                                }}
+                              />
+                            </Form.Group>
+                          </div>
 
                           <div className="mb-3">
                             <Form.Label style={{ fontWeight: '600', color: '#2D2D2D', marginBottom: '8px', display: 'block' }}>Your Rating</Form.Label>
