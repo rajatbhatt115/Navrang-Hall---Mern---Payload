@@ -105,7 +105,7 @@ export const Orders: CollectionConfig = {
           }
 
           const razorpay = new Razorpay({
-            key_id: (process.env.RAZORPAY_KEY_ID || 'rzp_test_1DP5mmOlF5G5ag').trim(),
+            key_id: (process.env.RAZORPAY_KEY_ID || '').trim(),
             key_secret: (process.env.RAZORPAY_KEY_SECRET || '').trim(),
           });
 
