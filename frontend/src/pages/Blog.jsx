@@ -34,6 +34,12 @@ const Blog = () => {
     return <div>Blog not found</div>
   }
 
+  const getFirstSentence = (text) => {
+    if (!text) return '';
+    const firstSentence = text.split(/[.!?]/)[0];
+    return firstSentence ? firstSentence + '.' : text;
+  };
+
   return (
     <>
       <HeroSection pageName="blog" />
@@ -56,6 +62,7 @@ const Blog = () => {
                       ></div>
                       <div className="blog-post-content">
                         <h3>{blog.title}</h3>
+                        <p className="blog-excerpt-card">{getFirstSentence(blog.excerpt)}</p>
                         <div className="blog-post-meta">
                           <div 
                             className="author-avatar" 
@@ -85,7 +92,7 @@ const Blog = () => {
                       ></div>
                       <div className="small-blog-content">
                         <h4>{blog.title}</h4>
-                        <p>{blog.excerpt}</p>
+                        <p>{getFirstSentence(blog.excerpt)}</p>
                         <div className="blog-post-meta">
                           <div 
                             className="author-avatar" 

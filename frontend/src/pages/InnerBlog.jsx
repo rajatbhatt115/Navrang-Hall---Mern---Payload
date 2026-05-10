@@ -153,6 +153,20 @@ const InnerBlog = () => {
               <div className="blog-post-content">
                 <h3>{blogData.title}</h3>
 
+                {blogData.excerpt && (
+                  <p className="blog-excerpt" style={{
+                    fontWeight: '400',
+                    fontSize: '1.15rem',
+                    color: '#555',
+                    borderLeft: '4px solid #FF7E00',
+                    paddingLeft: '15px',
+                    marginBottom: '20px',
+                    // fontStyle: 'italic'
+                  }}>
+                    {blogData.excerpt}
+                  </p>
+                )}
+
                 <p>{blogData.content}</p>
 
                 {/* Author Info */}

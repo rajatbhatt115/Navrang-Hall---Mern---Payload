@@ -32,6 +32,12 @@ const BlogSection = () => {
 
   const { mainBlog, smallBlogs = [] } = blogData
 
+  const getFirstSentence = (text) => {
+    if (!text) return '';
+    const firstSentence = text.split(/[.!?]/)[0];
+    return firstSentence ? firstSentence + '.' : text;
+  };
+
   return (
     <section className="blog-section">
       <Container>
@@ -49,6 +55,7 @@ const BlogSection = () => {
                 ></div>
                 <div className="blog-post-content">
                   <h3>{mainBlog.title}</h3>
+                  <p className="blog-excerpt-card">{getFirstSentence(mainBlog.excerpt)}</p>
                   <div className="blog-post-meta">
                     <div 
                       className="author-avatar" 
@@ -77,7 +84,7 @@ const BlogSection = () => {
                   ></div>
                   <div className="small-blog-content">
                     <h4>{blog.title}</h4>
-                    <p>{blog.excerpt}</p>
+                    <p>{getFirstSentence(blog.excerpt)}</p>
                     <div className="blog-post-meta">
                       <div 
                         className="author-avatar" 
