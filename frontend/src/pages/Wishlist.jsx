@@ -2,28 +2,91 @@ import { useState, useEffect } from 'react'
 import { Container } from 'react-bootstrap'
 import HeroSection from '../components/HeroSection'
 import api from '../api'
-import { FaTrashAlt, FaShoppingCart, FaMinus, FaPlus, FaCheckCircle, FaTimesCircle, FaHeartBroken, FaHeart } from 'react-icons/fa'
+import { FaTrashAlt, FaShoppingCart, FaMinus, FaPlus, FaCheckCircle, FaTimesCircle, FaHeartBroken, FaRegObjectUngroup } from 'react-icons/fa'
+import { HiShoppingCart, HiOutlineShoppingCart } from 'react-icons/hi'
 
 const Wishlist = () => {
   const [wishlistItems, setWishlistItems] = useState([])
+  const [cartItems, setCartItems] = useState([]) // Track cart items for toggle state
   const [showDeleteModal, setShowDeleteModal] = useState(false)
   const [itemToDelete, setItemToDelete] = useState(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    fetchWishlistItems()
+    fetchInitialData()
   }, [])
 
-  const fetchWishlistItems = async () => {
+  const fetchInitialData = async () => {
     try {
-      const response = await api.getWishlistItems()
-      setWishlistItems(response.data)
+      setLoading(true)
+      const [wishlistRes, cartRes] = await Promise.all([
+        api.getWishlistItems(),
+        api.getCartItems()
+      ])
+      setWishlistItems(wishlistRes.data)
+      setCartItems(cartRes.data)
     } catch (error) {
-      console.error('Error fetching wishlist items:', error)
+      console.error('Error fetching initial data:', error)
     } finally {
       setLoading(false)
     }
   }
+
+  // Check if item is already in cart
+  const isInCart = (wishlistItem) => {
+    return cartItems.some(cartItem => 
+      cartItem.name === wishlistItem.name && 
+      cartItem.size === wishlistItem.size && 
+      cartItem.color === wishlistItem.color
+    )
+  }
+
+  const toggleCart = async (item) => {
+    if (!item.inStock) return;
+    
+    try {
+      const existingCartItem = cartItems.find(cartItem => 
+        cartItem.name === item.name && 
+        cartItem.size === item.size && 
+        cartItem.color === item.color
+      );
+
+      if (existingCartItem) {
+        // REMOVE FROM CART
+        const targetId = existingCartItem._payloadId || existingCartItem.id;
+        await api.deleteCartItem(targetId);
+        
+        // Update local cart state
+        setCartItems(prev => prev.filter(i => (i._payloadId || i.id) !== targetId));
+        alert(`${item.name} has been removed from your cart.`);
+      } else {
+        // ADD TO CART
+        const cartItemData = {
+          name: item.name,
+          image: item.image,
+          image_id: item.image_id,
+          color: item.color,
+          size: item.size,
+          price: item.unitPrice,
+          quantity: item.quantity,
+          inStock: item.inStock
+        };
+        
+        const response = await api.addToCart(cartItemData);
+        
+        // Update local cart state
+        setCartItems(prev => [...prev, response.data]);
+        alert(`${item.name} has been added to your cart!`);
+      }
+      
+      // Dispatch update event for header/other components
+      window.dispatchEvent(new CustomEvent('cartUpdated'));
+      
+    } catch (error) {
+      console.error('Error toggling cart item:', error);
+      alert('Operation failed. Please try again.');
+    }
+  };
 
   const updateQuantity = async (id, change) => {
     const item = wishlistItems.find(item => item.id === id)
@@ -46,7 +109,7 @@ const Wishlist = () => {
   }
 
   const calculatePrice = (item) => {
-    return item.unitPrice * item.quantity
+    return (item.unitPrice || 0) * (item.quantity || 1)
   }
 
   const openDeleteModal = (id) => {
@@ -72,41 +135,6 @@ const Wishlist = () => {
     closeDeleteModal()
   }
 
-  const moveToCart = async (item) => {
-    if (!item.inStock) return;
-    
-    try {
-      // Cart में item add करें
-      const cartItemData = {
-        name: item.name,
-        image: item.image,
-        color: item.color,
-        size: item.size,
-        price: item.unitPrice,
-        quantity: item.quantity,
-        inStock: item.inStock
-      };
-      
-      await api.addToCart(cartItemData);
-      
-      // Wishlist से item remove करें
-      await api.deleteWishlistItem(item._payloadId || item.id);
-      
-      // Local state update करें
-      setWishlistItems(prevItems => prevItems.filter(i => i.id !== item.id));
-      
-      // Cart update event dispatch करें
-      window.dispatchEvent(new CustomEvent('cartUpdated'));
-      
-      // Success message
-      alert(`${item.name} (Qty: ${item.quantity}) has been moved to your cart!`);
-      
-    } catch (error) {
-      console.error('Error moving item to cart:', error);
-      alert('Failed to move item to cart. Please try again.');
-    }
-  };
-
   useEffect(() => {
     const wishlistLinks = document.querySelectorAll('a[href*="wishlist"], a[href="/wishlist"]');
     
@@ -117,11 +145,6 @@ const Wishlist = () => {
       if (icon) {
         icon.style.color = '#FF7E00';
       }
-      
-      const heartIcon = link.querySelector('.heart-icon');
-      if (heartIcon) {
-        heartIcon.style.color = '#FF7E00';
-      }
     });
 
     return () => {
@@ -130,11 +153,6 @@ const Wishlist = () => {
         const icon = link.querySelector('i, svg, .heart-icon');
         if (icon) {
           icon.style.color = '';
-        }
-        
-        const heartIcon = link.querySelector('.heart-icon');
-        if (heartIcon) {
-          heartIcon.style.color = '';
         }
       });
     };
@@ -148,92 +166,96 @@ const Wishlist = () => {
     <>
       <HeroSection pageName="wishlist" />
 
-      {/* Wishlist Section */}
       <section className="wishlist-section">
         <Container>
           {wishlistItems.length === 0 ? (
-            <div className="empty-wishlist show" id="emptyWishlist">
+            <div className="empty-wishlist show">
               <FaHeartBroken size={80} style={{ color: '#FF7E00', marginBottom: '20px' }} />
               <h3>Your Wishlist is Empty</h3>
               <p>Looks like you haven't added any items to your wishlist yet.</p>
               <a href="/shop" className="btn-shop-now">Start Shopping</a>
             </div>
           ) : (
-            <div id="wishlistContainer">
-              {wishlistItems.map(item => (
-                <div className="wishlist-item d-flex" key={item.id}>
-                  <div className="wishlist-image">
-                    <img src={item.image} alt={item.name} loading="lazy" />
+            <div>
+              {wishlistItems.map(item => {
+                const itemInCart = isInCart(item);
+                return (
+                  <div className="wishlist-item d-flex" key={item.id}>
+                    <div className="wishlist-image">
+                      <img src={item.image} alt={item.name} loading="lazy" />
+                    </div>
+                    <div className="wishlist-details">
+                      <h5>{item.name}</h5>
+                      <div className="detail-row">
+                        <span className="detail-label">Color :</span>
+                        <span className="detail-value">{item.color}</span>
+                      </div>
+                      <div className="detail-row">
+                        <span className="detail-label">Size :</span>
+                        <span className="detail-value">{item.size}</span>
+                      </div>
+                      <div className="stock-status">
+                        <span className={`status-badge ${item.inStock ? 'in-stock' : 'sold-out'}`}>
+                          {item.inStock ? <FaCheckCircle /> : <FaTimesCircle />}
+                          {item.inStock ? 'In Stock' : 'Sold Out'}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="wishlist-actions">
+                      <div className="action-buttons">
+                        <button 
+                          className="action-btn delete-btn" 
+                          onClick={() => openDeleteModal(item.id)}
+                          title="Delete item"
+                        >
+                          <FaTrashAlt />
+                        </button>
+                        <button
+                          className={`action-btn cart-btn ${itemInCart ? 'active' : ''}`}
+                          onClick={() => toggleCart(item)}
+                          title={itemInCart ? "Remove from cart" : "Add to cart"}
+                          disabled={!item.inStock}
+                          style={{
+                            ...(!item.inStock ? { opacity: 0.5, cursor: 'not-allowed' } : {}),
+                            backgroundColor: itemInCart ? '#FF7E00' : 'transparent',
+                            color: itemInCart ? 'white' : '#FF7E00',
+                            border: '1px solid #FF7E00'
+                          }}
+                        >
+                          {itemInCart ? <HiShoppingCart size={20} /> : <HiOutlineShoppingCart size={20} />}
+                        </button>
+                      </div>
+                      <div className="quantity-section">
+                        <button
+                          className="quantity-btn"
+                          onClick={() => updateQuantity(item.id, -1)}
+                          disabled={!item.inStock}
+                        >
+                          <FaMinus />
+                        </button>
+                        <span className="quantity-value">{item.quantity}</span>
+                        <button
+                          className="quantity-btn"
+                          onClick={() => updateQuantity(item.id, 1)}
+                          disabled={!item.inStock}
+                        >
+                          <FaPlus />
+                        </button>
+                      </div>
+                      <div className="price-tag">
+                        ₹ {calculatePrice(item)}
+                      </div>
+                    </div>
                   </div>
-                  <div className="wishlist-details">
-                    <h5>{item.name}</h5>
-                    <div className="detail-row">
-                      <span className="detail-label">Color :</span>
-                      <span className="detail-value">{item.color}</span>
-                    </div>
-                    <div className="detail-row">
-                      <span className="detail-label">Size :</span>
-                      <span className="detail-value">{item.size}</span>
-                    </div>
-                    <div className="stock-status">
-                      <span className={`status-badge ${item.inStock ? 'in-stock' : 'sold-out'}`}>
-                        {item.inStock ? <FaCheckCircle /> : <FaTimesCircle />}
-                        {item.inStock ? 'In Stock' : 'Sold Out'}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="wishlist-actions">
-                    <div className="action-buttons">
-                      <button 
-                        className="action-btn delete-btn" 
-                        onClick={() => openDeleteModal(item.id)}
-                        title="Delete item"
-                      >
-                        <FaTrashAlt />
-                      </button>
-                      <button
-                        className="action-btn cart-btn"
-                        onClick={() => moveToCart(item)}
-                        title="Move to cart"
-                        disabled={!item.inStock}
-                        style={!item.inStock ? { opacity: 0.5, cursor: 'not-allowed' } : {}}
-                      >
-                        <FaShoppingCart />
-                      </button>
-                    </div>
-                    <div className="quantity-section">
-                      <button
-                        className="quantity-btn"
-                        onClick={() => updateQuantity(item.id, -1)}
-                        disabled={!item.inStock}
-                        style={!item.inStock ? { opacity: 0.5, cursor: 'not-allowed' } : {}}
-                      >
-                        <FaMinus />
-                      </button>
-                      <span className="quantity-value">{item.quantity}</span>
-                      <button
-                        className="quantity-btn"
-                        onClick={() => updateQuantity(item.id, 1)}
-                        disabled={!item.inStock}
-                        style={!item.inStock ? { opacity: 0.5, cursor: 'not-allowed' } : {}}
-                      >
-                        <FaPlus />
-                      </button>
-                    </div>
-                    <div className="price-tag" data-unit-price={item.unitPrice}>
-                      ₹ {calculatePrice(item)}
-                    </div>
-                  </div>
-                </div>
-              ))}
+                )
+              })}
             </div>
           )}
         </Container>
       </section>
 
-      {/* Delete Confirmation Modal */}
       {showDeleteModal && (
-        <div className="confirmation-modal show" id="deleteConfirmationModal">
+        <div className="confirmation-modal show">
           <div className="modal-content-custom">
             <FaTrashAlt size={60} style={{ color: '#FF7E00', marginBottom: '20px' }} />
             <h4>Delete Item?</h4>
