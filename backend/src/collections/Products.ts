@@ -4,7 +4,7 @@ export const Products: CollectionConfig = {
   slug: 'products',
   access: { read: () => true, create: () => true, update: () => true, delete: () => true }, // public for now
   fields: [
-    { name: 'oldId', type: 'number', admin: { hidden: true } }, // to keep track of the original id
+    { name: 'oldId', type: 'number' }, // to keep track of the original id
     { name: 'title', type: 'text' },
     { name: 'price', type: 'number' },
     { name: 'category', type: 'text' },

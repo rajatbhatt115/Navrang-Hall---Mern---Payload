@@ -33,18 +33,17 @@ const DiscoverSection = () => {
         <Row>
           {Array.isArray(products) && products.map((product, index) => (
             <Col md={3} key={product.id}>
-              <div className="product-card" style={{ backgroundColor: product.bgColor, cursor: 'default' }}>
-                <span className="badge-new">{product.badge}</span>
-                <div 
-                  className="product-image1" 
-                  style={{ backgroundImage: `url(${product.image})` }}
-                  loading="lazy"
-                ></div>
-                <h5 className="mt-3">{product.title}</h5>
-                {/* <Link to="/shop">
-                  <button className="btn-read-more mt-1">Shop Now</button>
-                </Link> */}
-              </div>
+              <Link to={`/product/${product.id}`} className="text-decoration-none">
+                <div className="product-card" style={{ backgroundColor: product.bgColor, cursor: 'pointer' }}>
+                  <span className="badge-new">{product.badge}</span>
+                  <div 
+                    className="product-image1" 
+                    style={{ backgroundImage: `url(${product.image})` }}
+                    loading="lazy"
+                  ></div>
+                  <h5 className="mt-3" style={{ color: '#2D2D2D' }}>{product.title}</h5>
+                </div>
+              </Link>
             </Col>
           ))}
         </Row>

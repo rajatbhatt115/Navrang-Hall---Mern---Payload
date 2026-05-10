@@ -11,9 +11,8 @@ const InnerBlog = () => {
   const [commentForm, setCommentForm] = useState({
     firstName: '',
     lastName: '',
-    contact: '',
-    email: '',
-    message: ''
+    message: '',
+    photo: null
   })
   const [comments, setComments] = useState([])
 
@@ -48,10 +47,17 @@ const InnerBlog = () => {
   }, [id])
 
   const handleCommentChange = (e) => {
-    setCommentForm({
-      ...commentForm,
-      [e.target.name]: e.target.value
-    })
+    if (e.target.name === 'photo') {
+      setCommentForm({
+        ...commentForm,
+        photo: e.target.files[0]
+      })
+    } else {
+      setCommentForm({
+        ...commentForm,
+        [e.target.name]: e.target.value
+      })
+    }
   }
 
 
@@ -61,23 +67,26 @@ const InnerBlog = () => {
     e.preventDefault()
 
     try {
-      console.log('Submitting comment for blog ID:', id);
-      console.log('Comment form data:', commentForm);
+      setLoading(true);
+      let photoId = null;
+      let photoUrl = null;
+
+      // 1. Upload photo if selected
+      if (commentForm.photo) {
+        const uploadRes = await api.uploadMedia(commentForm.photo);
+        photoId = uploadRes.data.id;
+        photoUrl = uploadRes.data.url;
+      }
 
       const newCommentData = {
         name: `${commentForm.firstName} ${commentForm.lastName}`,
         text: commentForm.message,
-        // केवल name और text भेज रहे हैं
-        avatar: `https://i.pravatar.cc/150?img=${Math.floor(Math.random() * 70) + 1}`
+        avatar_id: photoId, // Send media ID for Payload relationship
+        avatar: photoUrl || `https://i.pravatar.cc/150?img=${Math.floor(Math.random() * 70) + 1}`
       }
 
-      console.log('Data being sent to API:', newCommentData);
-
-      // API call to save comment
+      // 2. API call to save comment
       const response = await api.addBlogComment(id, newCommentData);
-
-      console.log('API response:', response);
-      console.log('Response data:', response.data);
 
       if (response.data) {
         // Update comments state with new comment
@@ -89,18 +98,22 @@ const InnerBlog = () => {
         setCommentForm({
           firstName: '',
           lastName: '',
-          contact: '',
-          email: '',
-          message: ''
+          message: '',
+          photo: null
         });
+        
+        // Reset file input manually if needed
+        const fileInput = document.getElementById('photo');
+        if (fileInput) fileInput.value = '';
+        
       } else {
-        console.error('No data in response');
         alert('Failed to post comment. Please try again.');
       }
     } catch (error) {
       console.error('Error posting comment:', error);
-      console.error('Error details:', error.response?.data || error.message);
       alert('Failed to post comment. Please try again.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -229,26 +242,17 @@ const InnerBlog = () => {
                       </Col>
                     </Row>
                     <Row className="mb-3">
-                      <Col md={6} className="mb-3 mb-md-0">
-                        <Form.Control
-                          type="tel"
-                          id="contact"
-                          placeholder="Contact Number"
-                          name="contact"
-                          value={commentForm.contact}
-                          onChange={handleCommentChange}
-                        />
-                      </Col>
-                      <Col md={6}>
-                        <Form.Control
-                          type="email"
-                          id="email"
-                          placeholder="Email"
-                          name="email"
-                          value={commentForm.email}
-                          onChange={handleCommentChange}
-                          required
-                        />
+                      <Col md={12}>
+                        <Form.Group controlId="photo">
+                          <Form.Label style={{ color: '#666', fontSize: '14px' }}>Upload Photo (Optional)</Form.Label>
+                          <Form.Control
+                            type="file"
+                            name="photo"
+                            onChange={handleCommentChange}
+                            accept="image/*"
+                            style={{ padding: '10px' }}
+                          />
+                        </Form.Group>
                       </Col>
                     </Row>
                     <div className="mb-4">

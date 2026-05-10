@@ -148,7 +148,7 @@ const Cart = () => {
       const orderData = orderResponse.data;
 
       const options = {
-        key: "rzp_test_1DP5mmOlF5G5ag",
+        key: import.meta.env.VITE_RAZORPAY_KEY || "rzp_test_1DP5mmOlF5G5ag",
         amount: orderData.amount,
         currency: orderData.currency,
         name: "Navrang Hall",

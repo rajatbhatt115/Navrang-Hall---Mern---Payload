@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import api from '../api'
 
 const RatingSection = () => {
@@ -74,7 +75,7 @@ const RatingSection = () => {
       const orderData = orderResponse.data;
 
       const options = {
-        key: "rzp_test_1DP5mmOlF5G5ag",
+        key: import.meta.env.VITE_RAZORPAY_KEY || "rzp_test_1DP5mmOlF5G5ag",
         amount: orderData.amount,
         currency: orderData.currency,
         name: "Navrang Hall",
@@ -170,10 +171,14 @@ const RatingSection = () => {
             {Array.isArray(products) && products.map(product => (
               <Col md={4} key={product.id}>
                 <div className="rating-card">
-                  <div className="rating-image rating-image-kids1 rating-image-women1 rating-image-jewellery1" style={{ backgroundImage: `url(${product.image})` }}></div>
+                  <Link to={`/product/${product.id}`} className="text-decoration-none">
+                    <div className="rating-image" style={{ backgroundImage: `url(${product.image})`, cursor: 'pointer' }}></div>
+                  </Link>
                   <div className="rating-top-row">
                     <div className="left-group">
-                      <h5 className="item-title">{product.title}</h5>
+                      <Link to={`/product/${product.id}`} className="text-decoration-none">
+                        <h5 className="item-title" style={{ color: '#2D2D2D' }}>{product.title}</h5>
+                      </Link>
                       <div className="stars">{renderStars(product.rating)}</div>
                     </div>
                     <div className="price">{product.price}</div>

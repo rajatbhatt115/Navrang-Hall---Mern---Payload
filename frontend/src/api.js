@@ -32,8 +32,8 @@ function mapOldIdToId(obj, visited = new WeakSet()) {
   if (Array.isArray(obj)) {
     obj.forEach(item => mapOldIdToId(item, visited));
   } else {
-    if (obj.oldId !== undefined) {
-      obj._payloadId = obj.id; // Keep original MongoDB ID just in case
+    if (obj.oldId !== undefined && obj._payloadId === undefined) {
+      obj._payloadId = obj.id; 
       obj.id = obj.oldId;
     }
     for (const key in obj) {
@@ -140,13 +140,15 @@ const api = {
 
   // ==================== INNER BLOG PAGE ====================
   getInnerBlog: async (id) => {
-    const res = await axios.get(`${API_BASE_URL}/blogs?where[oldId][equals]=${id}`);
+    const numericId = Number(id);
+    const res = await axios.get(`${API_BASE_URL}/blogs?where[oldId][equals]=${numericId}`);
     return { data: res.data[0] || null };
   },
 
   // ==================== BLOG COMMENTS ====================
   addBlogComment: async (blogId, commentData) => {
-    const blogRes = await axios.get(`${API_BASE_URL}/blogs?where[oldId][equals]=${blogId}`);
+    const numericId = Number(blogId);
+    const blogRes = await axios.get(`${API_BASE_URL}/blogs?where[oldId][equals]=${numericId}`);
     const blog = blogRes.data[0];
     if (!blog) throw new Error('Blog not found');
     
@@ -163,7 +165,8 @@ const api = {
     
     existingComments.push(commentToAdd);
     
-    await axios.patch(`${API_BASE_URL}/blogs/${blog._payloadId || blog.id}`, { comments: existingComments });
+    const targetId = blog._payloadId || blog.id;
+    await axios.patch(`${API_BASE_URL}/blogs/${targetId}`, { comments: existingComments });
     return { data: commentToAdd };
   },
 
@@ -216,18 +219,21 @@ const api = {
 
   // ==================== PRODUCT DETAILS ====================
   getProductDetails: async (id) => {
-    const res = await axios.get(`${API_BASE_URL}/productDetails?where[oldId][equals]=${id}`);
+    const numericId = Number(id);
+    const res = await axios.get(`${API_BASE_URL}/productDetails?where[oldId][equals]=${numericId}`);
     return { data: res.data[0] || null };
   },
 
   // ==================== REVIEWS ====================
   getProductReviews: async (productId) => {
-    const res = await axios.get(`${API_BASE_URL}/productDetails?where[oldId][equals]=${productId}`);
+    const numericId = Number(productId);
+    const res = await axios.get(`${API_BASE_URL}/productDetails?where[oldId][equals]=${numericId}`);
     const product = res.data[0];
     return { data: product ? (product.reviews || []) : [] };
   },
   addProductReview: async (reviewData) => {
-    const res = await axios.get(`${API_BASE_URL}/productDetails?where[oldId][equals]=${reviewData.productId}`);
+    const numericId = Number(reviewData.productId);
+    const res = await axios.get(`${API_BASE_URL}/productDetails?where[oldId][equals]=${numericId}`);
     const product = res.data[0];
     if (!product) throw new Error('Product not found');
     
@@ -245,7 +251,8 @@ const api = {
     existingReviews.push(reviewToAdd);
     const averageRating = existingReviews.reduce((sum, r) => sum + r.rating, 0) / existingReviews.length;
     
-    await axios.patch(`${API_BASE_URL}/productDetails/${product.id}`, {
+    const targetId = product._payloadId || product.id;
+    await axios.patch(`${API_BASE_URL}/productDetails/${targetId}`, {
       reviews: existingReviews,
       rating: parseFloat(averageRating.toFixed(1))
     });
@@ -267,6 +274,19 @@ const api = {
   // ==================== RAZORPAY ====================
   createRazorpayOrder: (data) => axios.post(`${API_BASE_URL}/orders/create-order`, data),
   verifyRazorpayPayment: (data) => axios.post(`${API_BASE_URL}/orders/verify-payment`, data),
+
+  // ==================== MEDIA UPLOAD ====================
+  uploadMedia: async (file) => {
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('alt', file.name);
+    const res = await axios.post(`${API_BASE_URL}/media`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    });
+    return { data: res.data };
+  },
 };
 
 export default api;

@@ -43,8 +43,8 @@ const InnerProduct = () => {
       setProduct(productData);
       
       // ✅ Product के images set करें
-      if (productData.images && productData.images.length > 0) {
-        setMainImage(productData.images[0].large);
+      if (productData.largeImage) {
+        setMainImage(productData.largeImage);
       }
       
       // ✅ सबसे पहले productDetails से reviews लें
@@ -162,8 +162,8 @@ const InnerProduct = () => {
         // Prepare wishlist item data
         const wishlistItem = {
           name: product.name,
-          image: product.images && product.images.length > 0 ? product.images[0].thumb : '/img/default.jpg',
-          image_id: product.images && product.images.length > 0 ? product.images[0].thumb_id : null,
+          image: product.largeImage || '/img/default.jpg',
+          image_id: product.largeImage_id || null,
           color: getRandomColor(),
           size: selectedSize,
           unitPrice: product.price,
@@ -243,8 +243,8 @@ const InnerProduct = () => {
         // Prepare cart item data
         const cartItem = {
           name: product.name,
-          image: product.images && product.images.length > 0 ? product.images[0].thumb : '/img/default.jpg',
-          image_id: product.images && product.images.length > 0 ? product.images[0].thumb_id : null,
+          image: product.largeImage || '/img/default.jpg',
+          image_id: product.largeImage_id || null,
           color: getRandomColor(),
           size: selectedSize,
           price: product.price,
@@ -314,7 +314,7 @@ const InnerProduct = () => {
       const orderData = orderResponse.data;
 
       const options = {
-        key: "rzp_test_1DP5mmOlF5G5ag",
+        key: import.meta.env.VITE_RAZORPAY_KEY || "rzp_test_1DP5mmOlF5G5ag",
         amount: orderData.amount,
         currency: orderData.currency,
         name: "Navrang Hall",
@@ -581,24 +581,24 @@ const InnerProduct = () => {
                 </button>
               </div>
               <div className="thumbnail-container" style={{ display: 'flex', gap: '15px', marginTop: '20px' }}>
-                {product.images && product.images.map((img, index) => (
+                {product.thumbnails && product.thumbnails.map((item, index) => (
                   <div
                     key={index}
-                    onClick={() => setMainImage(img.large)}
+                    onClick={() => item.image && setMainImage(item.image)}
                     className="thumbnail"
                     style={{
                       flex: 1,
                       cursor: 'pointer',
                       borderRadius: '15px',
                       overflow: 'hidden',
-                      border: mainImage === img.large ? '3px solid #FF7E00' : '2px solid #eee',
+                      border: mainImage === item.image ? '3px solid #FF7E00' : '2px solid #eee',
                       transition: 'all 0.3s',
                       height: '120px',
-                      opacity: mainImage === img.large ? 1 : 0.7
+                      opacity: mainImage === item.image ? 1 : 0.7
                     }}
                   >
                     <img
-                      src={img.thumb}
+                      src={item.image}
                       alt={`View ${index + 1}`}
                       style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                       loading="lazy"

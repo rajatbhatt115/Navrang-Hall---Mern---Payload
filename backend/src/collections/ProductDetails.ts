@@ -4,13 +4,13 @@ export const ProductDetails: CollectionConfig = {
   slug: 'productDetails',
   access: { read: () => true, create: () => true, update: () => true, delete: () => true }, // public for now
   fields: [
-    { name: 'oldId', type: 'number', admin: { hidden: true } }, // to keep track of the original id
+    { name: 'oldId', type: 'number' }, // to keep track of the original id
     { name: 'name', type: 'text' },
     { name: 'price', type: 'number' },
     { name: 'rating', type: 'number' },
-    { name: 'images', type: 'array', fields: [
-      { name: 'thumb', type: 'upload', relationTo: 'media' },
-      { name: 'large', type: 'upload', relationTo: 'media' },
+    { name: 'largeImage', type: 'upload', relationTo: 'media' },
+    { name: 'thumbnails', type: 'array', minRows: 3, maxRows: 3, fields: [
+      { name: 'image', type: 'upload', relationTo: 'media' },
     ] },
     { 
       name: 'sizes', 
